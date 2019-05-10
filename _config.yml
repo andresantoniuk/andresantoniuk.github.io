@@ -1,2 +1,8 @@
 plugins:
   - jekyll-redirect-from
+
+title: Cayman theme
+description: Juan Andrés Antoniuk.
+show_downloads: true
+google_analytics: UA-51086917-1
+theme: jekyll-theme-cayman
