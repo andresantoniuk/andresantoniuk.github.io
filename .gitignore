@@ -1,0 +1,19 @@
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby / Bundler
+.bundle/
+Gemfile.lock
+
+# Node
+node_modules/
+package-lock.json
+yarn-error.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+

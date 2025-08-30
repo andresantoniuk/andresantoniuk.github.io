@@ -59,6 +59,75 @@
       <i class="fas fa-search fa-fw"></i>
     </button>
 
+    <div id="lang-selector">
+      {% comment %}
+        Detect current language based on URL
+        - If URL contains '/es/', current language is Spanish
+        - Otherwise, current language is English
+      {% endcomment %}
+      {% if page.url contains '/es/' %}
+        {% assign current_lang = 'es' %}
+      {% else %}
+        {% assign current_lang = 'en' %}
+      {% endif %}
+      
+      {% for lang in site.languages %}
+        {% if lang == current_lang %}
+          <span class="btn btn-link disabled" style="cursor: default;">
+            {% if lang == 'en' %}🇬🇧{% elsif lang == 'es' %}🇪🇸{% endif %} {{ lang | upcase }}
+          </span>
+        {% else %}
+          {% if lang == 'es' %}
+            {% comment %}
+              Switch to Spanish: only if there's a Spanish version available
+              - Check if current post has a Spanish equivalent
+              - If yes, generate Spanish URL; if no, disable the button
+            {% endcomment %}
+            {% if page.url == '/' %}
+              <a href="/es/" class="btn btn-link">🇪🇸 {{ lang | upcase }}</a>
+            {% elsif page.layout == 'post' %}
+              {% comment %}
+                For posts, check if there's a Spanish version
+              {% endcomment %}
+              {% assign spanish_url = page.url | replace: '/posts/', '/es/posts/' %}
+              {% assign spanish_post_exists = false %}
+              
+              {% for post in site.posts-es %}
+                {% if post.url == spanish_url %}
+                  {% assign spanish_post_exists = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              
+              {% if spanish_post_exists %}
+                <a href="{{ spanish_url | relative_url }}" class="btn btn-link">🇪🇸 {{ lang | upcase }}</a>
+              {% else %}
+                <span class="btn btn-link disabled" style="cursor: default; opacity: 0.5;" title="No Spanish version available">
+                  🇪🇸 {{ lang | upcase }}
+                </span>
+              {% endif %}
+            {% else %}
+              {% comment %}
+                For other pages, just add /es/ to the URL
+              {% endcomment %}
+              <a href="{{ '/es' | append: page.url | relative_url }}" class="btn btn-link">🇪🇸 {{ lang | upcase }}</a>
+            {% endif %}
+          {% else %}
+            {% comment %}
+              Switch to English: remove /es/ from the current URL
+              - From /es/posts/welcome/ to /posts/welcome/
+              - From /es/ to /
+            {% endcomment %}
+            {% if page.url == '/es/' %}
+              <a href="/" class="btn btn-link">🇬🇧 {{ lang | upcase }}</a>
+            {% else %}
+              <a href="{{ page.url | replace: '/es', '' | relative_url }}" class="btn btn-link">🇬🇧 {{ lang | upcase }}</a>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
     <search id="search" class="align-items-center ms-3 ms-lg-0">
       <i class="fas fa-search fa-fw"></i>
       <input
@@ -70,7 +139,7 @@
         placeholder="{{ site.data.locales[include.lang].search.hint | capitalize }}..."
       >
     </search>
-    <button type="button" class="btn btn-link text-decoration-none" id="search-cancel">
+    <button type="button" class="btn btn-link text-decoration-none" id="search-cancel">s
       {{- site.data.locales[include.lang].search.cancel -}}
     </button>
   </div>

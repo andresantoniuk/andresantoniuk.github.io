@@ -1,0 +1,76 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 text-center">
+      <h1 class="display-4">404 - Page Not Found</h1>
+      
+      {% comment %}
+        Check if this is a Spanish URL that might have an English equivalent
+      {% endcomment %}
+      {% if page.url contains '/es/' %}
+        {% comment %}
+          This is a Spanish URL - check if there's a corresponding English post
+        {% endcomment %}
+        {% assign english_url = page.url | replace: '/es/posts/', '/posts/' %}
+        {% assign english_post_exists = false %}
+        {% assign english_post = nil %}
+        
+        {% for post in site.posts %}
+          {% if post.url == english_url %}
+            {% assign english_post_exists = true %}
+            {% assign english_post = post %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if english_post_exists %}
+          <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">🇪🇸 Traducción Disponible</h4>
+            <p>Esta entrada está disponible en inglés. Puedes leerla en inglés o usar Google Translate para traducirla al español.</p>
+            <hr>
+            <div class="d-flex justify-content-center gap-2">
+              <a href="{{ english_post.url | relative_url }}" class="btn btn-primary">
+                <i class="fas fa-flag me-2"></i>Leer en Inglés
+              </a>
+              <a href="https://translate.google.com/translate?sl=en&tl=es&u={{ site.url }}{{ english_post.url }}" 
+                 class="btn btn-outline-primary" target="_blank" rel="noopener">
+                <i class="fas fa-language me-2"></i>Traducir con Google
+              </a>
+            </div>
+          </div>
+          
+          <div class="card mt-4">
+            <div class="card-body">
+              <h5 class="card-title">{{ english_post.title }}</h5>
+              <p class="card-text">{{ english_post.excerpt | strip_html | truncate: 200 | escape }}</p>
+              <a href="{{ english_post.url | relative_url }}" class="btn btn-primary">Leer Más</a>
+            </div>
+          </div>
+        {% else %}
+          <p class="lead">Lo sentimos, la página que buscas no existe.</p>
+          <p>Esta URL en español no tiene una entrada correspondiente en inglés.</p>
+        {% endif %}
+      {% else %}
+        <p class="lead">Sorry, the page you're looking for doesn't exist.</p>
+      {% endif %}
+      
+      <div class="mt-4">
+        {% if page.url contains '/es/' %}
+          <a href="/es/" class="btn btn-outline-primary me-2">
+            <i class="fas fa-home me-2"></i>Ir al Inicio
+          </a>
+        {% else %}
+          <a href="{{ '/' | relative_url }}" class="btn btn-outline-primary me-2">
+            <i class="fas fa-home me-2"></i>Go Home
+          </a>
+        {% endif %}
+        <a href="javascript:history.back()" class="btn btn-outline-secondary">
+          <i class="fas fa-arrow-left me-2"></i>Go Back
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

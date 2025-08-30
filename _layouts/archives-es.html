@@ -1,6 +1,6 @@
 ---
 layout: page
-# All the Archives of posts
+# All the Archives of Spanish posts
 ---
 
 {% include lang.html %}
@@ -11,26 +11,26 @@ layout: page
 {% assign group_index = 0 %}
 
 {% comment %}
-  Create a comprehensive archive list for English pages:
-  1. First show all English posts
-  2. Then show Spanish posts that don't have English translations
+  Create a comprehensive archive list for Spanish pages:
+  1. First show all Spanish posts
+  2. Then show English posts that don't have Spanish translations
   3. Sort by date within each group
   4. Use filename matching to prevent duplication
 {% endcomment %}
 
 {% comment %}
-  Get all English posts sorted by date
+  Get all Spanish posts sorted by date
 {% endcomment %}
-{% assign english_posts = site.posts | sort: 'date' | reverse %}
+{% assign spanish_posts = site.posts-es | sort: 'date' | reverse %}
 
 {% comment %}
-  Get Spanish posts that don't have English translations
+  Get English posts that don't have Spanish translations
   Using filename matching to identify related posts instead of date matching
 {% endcomment %}
-{% assign spanish_posts_without_translations = '' | split: '' %}
-{% for spanish_post in site.posts-es %}
-  {% assign has_english_translation = false %}
-  {% for english_post in site.posts %}
+{% assign english_posts_without_translations = '' | split: '' %}
+{% for english_post in site.posts %}
+  {% assign has_spanish_translation = false %}
+  {% for spanish_post in site.posts-es %}
     {% comment %}
       Check if this is the same post by comparing filenames
       Extract base filename (without date prefix) for comparison
@@ -45,20 +45,20 @@ layout: page
     {% assign spanish_base = spanish_filename | split: '-' | slice: 3, 999 | join: '-' %}
     
     {% if english_base == spanish_base %}
-      {% assign has_english_translation = true %}
+      {% assign has_spanish_translation = true %}
       {% break %}
     {% endif %}
   {% endfor %}
-  {% unless has_english_translation %}
-    {% assign spanish_posts_without_translations = spanish_posts_without_translations | push: spanish_post %}
+  {% unless has_spanish_translation %}
+    {% assign english_posts_without_translations = english_posts_without_translations | push: english_post %}
   {% endunless %}
 {% endfor %}
-{% assign spanish_posts_without_translations = spanish_posts_without_translations | sort: 'date' | reverse %}
+{% assign english_posts_without_translations = english_posts_without_translations | sort: 'date' | reverse %}
 
 {% comment %}
   Combine all posts and group by year
 {% endcomment %}
-{% assign all_posts = english_posts | concat: spanish_posts_without_translations %}
+{% assign all_posts = spanish_posts | concat: english_posts_without_translations %}
 {% assign posts_by_year = all_posts | group_by_exp: "post", "post.date | date: '%Y'" | sort: "name" | reverse %}
 
 {% for year in posts_by_year %}
@@ -75,17 +75,9 @@ layout: page
         <span class="text-muted small font-weight-light">
           {{ year_posts.size }}
           {% if year_posts.size > 1 %}
-            {{
-              site.data.locales[lang].archives.post_measure.plural
-              | default: site.data.locales[lang].archives.post_measure
-              | default: 'posts'
-            }}
+            {{ site.data.locales[lang].archives.post_measure.plural | default: site.data.locales[lang].archives.post_measure | default: 'posts' }}
           {% else %}
-            {{
-              site.data.locales[lang].archives.post_measure.singular
-              | default: site.data.locales[lang].archives.post_measure
-              | default: 'post'
-            }}
+            {{ site.data.locales[lang].archives.post_measure.singular | default: site.data.locales[lang].archives.post_measure | default: 'post' }}
           {% endif %}
         </span>
       </span>
@@ -100,12 +92,12 @@ layout: page
               <span class="ms-3">
                 {% if post.collection == 'posts-es' %}
                   🇪🇸 {{ post.title }}
-                  <small class="text-muted d-block mt-1">
-                    <i class="fas fa-language me-1"></i>
-                    Only available in Spanish
-                  </small>
                 {% else %}
                   🇬🇧 {{ post.title }}
+                  <small class="text-muted d-block mt-1">
+                    <i class="fas fa-language me-1"></i>
+                    Solo disponible en inglés
+                  </small>
                 {% endif %}
               </span>
             </a>

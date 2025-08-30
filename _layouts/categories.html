@@ -10,129 +10,129 @@ layout: page
 
 {% assign group_index = 0 %}
 
-{% assign sort_categories = site.categories | sort %}
+{% comment %}
+  Create a comprehensive categories list for English pages:
+  1. Use English categories for consistency
+  2. Show English posts first, then Spanish posts without English translations
+  3. Sort by date within each group
+  4. Use filename matching to prevent duplication
+{% endcomment %}
 
-{% for category in sort_categories %}
-  {% assign category_name = category | first %}
-  {% assign posts_of_category = category | last %}
-  {% assign first_post = posts_of_category | first %}
+{% comment %}
+  Get all English posts sorted by date
+{% endcomment %}
+{% assign english_posts = site.posts | sort: 'date' | reverse %}
 
-  {% if category_name == first_post.categories[0] %}
-    {% assign sub_categories = '' | split: '' %}
+{% comment %}
+  Get Spanish posts that don't have English translations
+  Using filename matching to identify related posts instead of date matching
+{% endcomment %}
+{% assign spanish_posts_without_translations = '' | split: '' %}
+{% for spanish_post in site.posts-es %}
+  {% assign has_english_translation = false %}
+  {% for english_post in site.posts %}
+    {% comment %}
+      Check if this is the same post by comparing filenames
+      Extract base filename (without date prefix) for comparison
+    {% endcomment %}
+    {% assign english_filename = english_post.name | remove: '.md' %}
+    {% assign spanish_filename = spanish_post.name | remove: '.md' %}
+    
+    {% comment %}
+      Remove date prefix (YYYY-MM-DD-) from filenames to get base names
+    {% endcomment %}
+    {% assign english_base = english_filename | split: '-' | slice: 3, 999 | join: '-' %}
+    {% assign spanish_base = spanish_filename | split: '-' | slice: 3, 999 | join: '-' %}
+    
+    {% if english_base == spanish_base %}
+      {% assign has_english_translation = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  {% unless has_english_translation %}
+    {% assign spanish_posts_without_translations = spanish_posts_without_translations | push: spanish_post %}
+  {% endunless %}
+{% endfor %}
+{% assign spanish_posts_without_translations = spanish_posts_without_translations | sort: 'date' | reverse %}
 
-    {% for post in posts_of_category %}
-      {% assign second_category = post.categories[1] %}
-      {% if second_category %}
-        {% unless sub_categories contains second_category %}
-          {% assign sub_categories = sub_categories | push: second_category %}
-        {% endunless %}
-      {% endif %}
-    {% endfor %}
+{% comment %}
+  Combine all posts and create categories from English posts for consistency
+{% endcomment %}
+{% assign all_posts = english_posts | concat: spanish_posts_without_translations %}
 
-    {% assign sub_categories = sub_categories | sort %}
-    {% assign sub_categories_size = sub_categories | size %}
+{% comment %}
+  Create categories from all posts to ensure all categories are discovered
+{% endcomment %}
+{% assign all_categories = '' | split: '' %}
+{% for post in all_posts %}
+  {% for category in post.categories %}
+    {% unless all_categories contains category %}
+      {% assign all_categories = all_categories | push: category %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
 
-    <div class="card categories">
-      <!-- top-category -->
-      <div
-        id="{{ HEAD_PREFIX }}{{ group_index }}"
-        class="card-header d-flex justify-content-between hide-border-bottom"
-      >
-        <span class="ms-2">
-          <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw"></i>
+{% assign sort_categories = all_categories | sort %}
 
-          {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
-          <a href="{{ _category_url | relative_url }}" class="mx-2">{{ category_name }}</a>
+{% for category_name in sort_categories %}
+  {% assign posts_of_category = all_posts | where_exp: "post", "post.categories contains category_name" %}
+  {% assign posts_size = posts_of_category | size %}
 
-          <!-- content count -->
-          {% assign top_posts_size = site.categories[category_name] | size %}
-          <span class="text-muted small font-weight-light">
-            {% if sub_categories_size > 0 %}
-              {{ sub_categories_size }}
-              {% if sub_categories_size > 1 %}
-                {{
-                  site.data.locales[lang].categories.category_measure.plural
-                  | default: site.data.locales[lang].categories.category_measure
-                }}
-              {% else %}
-                {{
-                  site.data.locales[lang].categories.category_measure.singular
-                  | default: site.data.locales[lang].categories.category_measure
-                }}
-              {% endif -%}
-              ,
-            {% endif %}
+  <div class="card categories">
+    <div
+      id="{{ HEAD_PREFIX }}{{ group_index }}"
+      class="card-header d-flex justify-content-between hide-border-bottom"
+    >
+      <span class="ms-2">
+        <i class="far fa-folder fa-fw"></i>
 
-            {{ top_posts_size }}
+        <a href="/categories/#{{ category_name | slugify }}" class="mx-2">{{ category_name }}</a>
 
-            {% if top_posts_size > 1 %}
-              {{
-                site.data.locales[lang].categories.post_measure.plural
-                | default: site.data.locales[lang].categories.post_measure
-              }}
-            {% else %}
-              {{
-                site.data.locales[lang].categories.post_measure.singular
-                | default: site.data.locales[lang].categories.post_measure
-              }}
-            {% endif %}
-          </span>
+        <!-- content count -->
+        <span class="text-muted small font-weight-light">
+          {{ posts_size }}
+
+          {% if posts_size > 1 %}
+            {{
+              site.data.locales[lang].categories.post_measure.plural
+              | default: site.data.locales[lang].categories.post_measure
+              | default: 'posts'
+            }}
+          {% else %}
+            {{
+              site.data.locales[lang].categories.post_measure.singular
+              | default: site.data.locales[lang].categories.post_measure
+              | default: 'post'
+            }}
+          {% endif %}
         </span>
-
-        <!-- arrow -->
-        {% if sub_categories_size > 0 %}
-          <a
-            href="#{{ LIST_PREFIX }}{{ group_index }}"
-            data-bs-toggle="collapse"
-            aria-expanded="true"
-            aria-label="{{ HEAD_PREFIX }}{{ group_index }}-trigger"
-            class="category-trigger hide-border-bottom"
-          >
-            <i class="fas fa-fw fa-angle-down"></i>
-          </a>
-        {% else %}
-          <span data-bs-toggle="collapse" class="category-trigger hide-border-bottom disabled">
-            <i class="fas fa-fw fa-angle-right"></i>
-          </span>
-        {% endif %}
-      </div>
-      <!-- .card-header -->
-
-      <!-- Sub-categories -->
-      {% if sub_categories_size > 0 %}
-        <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show" aria-expanded="true">
-          <ul class="list-group">
-            {% for sub_category in sub_categories %}
-              <li class="list-group-item">
-                <i class="far fa-folder fa-fw"></i>
-
-                {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
-                <a href="{{ _sub_ctg_url | relative_url }}" class="mx-2">{{ sub_category }}</a>
-
-                {% assign posts_size = site.categories[sub_category] | size %}
-                <span class="text-muted small font-weight-light">
-                  {{ posts_size }}
-
-                  {% if posts_size > 1 %}
-                    {{
-                      site.data.locales[lang].categories.post_measure.plural
-                      | default: site.data.locales[lang].categories.post_measure
-                    }}
-                  {% else %}
-                    {{
-                      site.data.locales[lang].categories.post_measure.singular
-                      | default: site.data.locales[lang].categories.post_measure
-                    }}
-                  {% endif %}
-                </span>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
+      </span>
     </div>
-    <!-- .card -->
 
-    {% assign group_index = group_index | plus: 1 %}
-  {% endif %}
+    <!-- posts list -->
+    <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show">
+      <ul class="list-group list-group-flush">
+        {% for post in posts_of_category %}
+          <li class="list-group-item px-3">
+            <a href="{{ post.url | relative_url }}" class="d-flex">
+              <span class="text-muted small">{{ post.date | date: '%Y-%m-%d' }}</span>
+              <span class="ms-3">
+                {% if post.collection == 'posts-es' %}
+                  🇪🇸 {{ post.title }}
+                  <small class="text-muted d-block mt-1">
+                    <i class="fas fa-language me-1"></i>
+                    Only available in Spanish
+                  </small>
+                {% else %}
+                  🇬🇧 {{ post.title }}
+                {% endif %}
+              </span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  {% assign group_index = group_index | plus: 1 %}
 {% endfor %}

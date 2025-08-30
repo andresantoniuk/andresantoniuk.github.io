@@ -1,84 +1,52 @@
-<!-- markdownlint-disable-next-line -->
-<div align="center">
+# Juan Andrés Antoniuk - Personal Blog
 
-  <!-- markdownlint-disable-next-line -->
-  # Chirpy Jekyll Theme
+Welcome to my personal blog built with Jekyll and the Chirpy theme. This blog serves as my digital garden where I share thoughts on technology, leadership, and life.
 
-  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
+## 🌐 Live Site
+Visit [antoniuk.org](https://antoniuk.org) to read my latest posts.
 
-  [![CI](https://img.shields.io/github/actions/workflow/status/cotes2020/jekyll-theme-chirpy/ci.yml?logo=github)][ci]&nbsp;
-  [![Codacy Badge](https://img.shields.io/codacy/grade/4e556876a3c54d5e8f2d2857c4f43894?logo=codacy)][codacy]&nbsp;
-  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy?color=goldenrod)][license]&nbsp;
-  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?&logo=RubyGems&logoColor=ghostwhite&label=gem&color=orange)][gem]&nbsp;
-  [![Open in Dev Containers](https://img.shields.io/badge/Dev_Containers-Open-deepskyblue?logo=linuxcontainers)][open-container]
+## 🚀 Features
+- **Bilingual Support**: Content available in English and Spanish
+- **Responsive Design**: Optimized for all devices
+- **Dark Theme**: Easy on the eyes
+- **Search Functionality**: Find content quickly
+- **Categories & Tags**: Organized content navigation
+- **RSS Feed**: Stay updated with new posts
+- **PWA Support**: Progressive Web App capabilities
 
-  [**Live Demo** →][demo]
+## 🛠️ Built With
+- [Jekyll](https://jekyllrb.com/) - Static site generator
+- [Chirpy Theme](https://github.com/cotes2020/jekyll-theme-chirpy) - Beautiful, responsive Jekyll theme
+- [GitHub Pages](https://pages.github.com/) - Hosting platform
 
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
+## 📝 Content Categories
+- **Technology**: Software development, architecture, DevOps
+- **Leadership**: Team management, strategic thinking
+- **Linux**: Open source, embedded systems, kernel development
+- **Personal**: Life lessons, faith, family
 
-</div>
+## 🔧 Local Development
+```bash
+# Install dependencies
+bundle install
 
-## Features
+# Build the site
+bundle exec jekyll build
 
-- Dark Theme
-- Localized UI language
-- Pinned Posts on Home Page
-- Hierarchical Categories
-- Trending Tags
-- Table of Contents
-- Last Modified Date
-- Syntax Highlighting
-- Mathematical Expressions
-- Mermaid Diagrams & Flowcharts
-- Dark Mode Images
-- Embed Media
-- Comment Systems
-- Built-in Search
-- Atom Feeds
-- PWA
-- Web Analytics
-- SEO & Performance Optimization
+# Serve locally
+bundle exec jekyll serve
+```
 
-## Documentation
+## 📱 Contact
+- **Website**: [antoniuk.org](https://antoniuk.org)
+- **Email**: andres@antoniuk.org
+- **GitHub**: [@andresantoniuk](https://github.com/andresantoniuk)
+- **LinkedIn**: [Juan Andrés Antoniuk](https://www.linkedin.com/in/andresantoniuk)
+- **X (Twitter)**: [@andresantoniuk](https://x.com/andresantoniuk)
 
-To learn how to use, develop, and upgrade the project, please refer to the [Wiki][wiki].
+## 📄 License
+This project is open source and available under the [MIT License](LICENSE).
 
-## Contributing
+---
 
-Contributions (_pull requests_, _issues_, and _discussions_) are what make the open-source community such an amazing place
-to learn, inspire, and create. Any contributions you make are greatly appreciated.
-For details, see the "[Contributing Guidelines][contribute-guide]".
-
-## Credits
-
-### Contributors
-
-Thanks to [all the contributors][contributors] involved in the development of the project!
-
-[![all-contributors](https://contrib.rocks/image?repo=cotes2020/jekyll-theme-chirpy&columns=16)][contributors]
-<sub> — Made with [contrib.rocks](https://contrib.rocks)</sub>
-
-### Third-Party Assets
-
-This project is built on the [Jekyll][jekyllrb] ecosystem and some [great libraries][lib], and is developed using [VS Code][vscode] as well as tools provided by [JetBrains][jetbrains] under a non-commercial open-source software license.
-
-The avatar and favicon for the project's website are from [ClipartMAX][clipartmax].
-
-## License
-
-This project is published under [MIT License][license].
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
-[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
-[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
-[open-container]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/cotes2020/jekyll-theme-chirpy
-[jekyllrb]: https://jekyllrb.com/
-[clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[lib]: https://github.com/cotes2020/chirpy-static-assets
-[vscode]: https://code.visualstudio.com/
-[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
+*"Life is much more than work and professional achievements. I'm on a continuous journey to find and fulfill God's purpose for me in this world."*

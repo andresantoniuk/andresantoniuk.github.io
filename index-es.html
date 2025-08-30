@@ -1,0 +1,106 @@
+---
+layout: default
+lang: es
+permalink: /es/
+---
+
+<!-- Esta es la página de inicio en español -->
+
+<div id="post-list" class="flex-grow-1 px-xl-1">
+  {% comment %}
+    Create a comprehensive post list for Spanish pages:
+    1. First show all Spanish posts
+    2. Then show English posts that don't have Spanish translations
+    3. Sort by date within each group
+    4. Improved duplicate detection using filename matching
+  {% endcomment %}
+  
+  {% comment %}
+    Get all Spanish posts sorted by date
+  {% endcomment %}
+  {% assign spanish_posts = site.posts-es | sort: 'date' | reverse %}
+  
+  {% comment %}
+    Get English posts that don't have Spanish translations
+    Using filename matching to identify related posts instead of date matching
+  {% endcomment %}
+  {% assign english_posts_without_translations = '' | split: '' %}
+  {% for english_post in site.posts %}
+    {% assign has_spanish_translation = false %}
+    {% for spanish_post in site.posts-es %}
+      {% comment %}
+        Check if this is the same post by comparing filenames
+        Extract base filename (without date prefix) for comparison
+      {% endcomment %}
+      {% assign english_filename = english_post.name | remove: '.md' %}
+      {% assign spanish_filename = spanish_post.name | remove: '.md' %}
+      
+      {% comment %}
+        Remove date prefix (YYYY-MM-DD-) from filenames to get base names
+      {% endcomment %}
+      {% assign english_base = english_filename | split: '-' | slice: 3, 999 | join: '-' %}
+      {% assign spanish_base = spanish_filename | split: '-' | slice: 3, 999 | join: '-' %}
+      
+      {% if english_base == spanish_base %}
+        {% assign has_spanish_translation = true %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% unless has_spanish_translation %}
+      {% assign english_posts_without_translations = english_posts_without_translations | push: english_post %}
+    {% endunless %}
+  {% endfor %}
+  {% assign english_posts_without_translations = english_posts_without_translations | sort: 'date' | reverse %}
+  
+  {% comment %}
+    Combine and display all posts
+  {% endcomment %}
+  {% assign all_posts = spanish_posts | concat: english_posts_without_translations %}
+  
+  {% if all_posts.size > 0 %}
+    {% for post in all_posts limit: 15 %}
+      <article class="card-wrapper card">
+        <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+          <div class="col-md-12">
+            <div class="card-body d-flex flex-column">
+              <h1 class="card-title my-2 mt-md-0">
+                {% if post.collection == 'posts-es' %}
+                  🇪🇸 {{ post.title }}
+                {% else %}
+                  🇬🇧 {{ post.title }}
+                  <small class="text-muted d-block mt-1">
+                    <i class="fas fa-language me-1"></i>
+                    Solo disponible en inglés - 
+                    <a href="https://translate.google.com/translate?sl=en&tl=es&u={{ site.url }}{{ post.url }}" 
+                       target="_blank" rel="noopener" class="text-decoration-none">
+                      Traducir con Google Translate
+                    </a>
+                  </small>
+                {% endif %}
+              </h1>
+              <div class="card-text content mt-0 mb-3">
+                <p>{{ post.excerpt | strip_html | truncate: 200 | escape }}</p>
+              </div>
+              <div class="post-meta flex-grow-1 d-flex align-items-end">
+                <div class="me-auto">
+                  <i class="far fa-calendar fa-fw me-1"></i>
+                  <span>{{ post.date | date: '%Y-%m-%d' }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  {% else %}
+    <div class="card-wrapper">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">No se encontraron entradas</h1>
+          <p class="card-text">No hay entradas disponibles en este momento.</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+

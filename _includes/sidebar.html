@@ -20,23 +20,61 @@
     <ul class="nav">
       <!-- home -->
       <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
-        <a href="{{ '/' | relative_url }}" class="nav-link">
-          <i class="fa-fw fas fa-home"></i>
-          <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
-        </a>
+        {% if page.url contains '/es/' %}
+          <a href="/es/" class="nav-link">
+            <i class="fa-fw fas fa-home"></i>
+            <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
+          </a>
+        {% else %}
+          <a href="{{ '/' | relative_url }}" class="nav-link">
+            <i class="fa-fw fas fa-home"></i>
+            <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
+          </a>
+        {% endif %}
       </li>
       <!-- the real tabs -->
-      {% for tab in site.tabs %}
-        <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-          <a href="{{ tab.url | relative_url }}" class="nav-link">
-            <i class="fa-fw {{ tab.icon }}"></i>
-            {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
-
-            <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
-          </a>
-        </li>
-        <!-- .nav-item -->
-      {% endfor %}
+      {% comment %}
+        Filter tabs based on current language to avoid duplicates
+        - Spanish pages: show only Spanish tabs (those with -es.md)
+        - English pages: show only English tabs (those without -es.md)
+      {% endcomment %}
+      {% if page.url contains '/es/' %}
+        {% comment %} Spanish page - show only Spanish tabs {% endcomment %}
+        {% for tab in site.tabs %}
+          {% if tab.path contains '-es.md' %}
+            <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
+              <a href="{{ tab.url | relative_url }}" class="nav-link">
+                <i class="fa-fw {{ tab.icon }}"></i>
+                {% comment %}
+                  Extract the base tab name without language suffix for locale lookup
+                  - From "categories-es" get "categories"
+                  - From "tags-es" get "tags"
+                {% endcomment %}
+                {% assign base_tab_name = tab.path | split: '/' | last | replace: '-es.md', '' %}
+                <span>{{ site.data.locales[include.lang].tabs.[base_tab_name] | upcase }}</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% comment %} English page - show only English tabs {% endcomment %}
+        {% for tab in site.tabs %}
+          {% unless tab.path contains '-es.md' %}
+            <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
+              <a href="{{ tab.url | relative_url }}" class="nav-link">
+                <i class="fa-fw {{ tab.icon }}"></i>
+                {% comment %}
+                  Extract the base tab name for locale lookup
+                  - From "categories.md" get "categories"
+                  - From "tags.md" get "tags"
+                {% endcomment %}
+                {% assign base_tab_name = tab.path | split: '/' | last | replace: '.md', '' %}
+                <span>{{ site.data.locales[include.lang].tabs.[base_tab_name] | upcase }}</span>
+              </a>
+            </li>
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
     </ul>
   </nav>
 
