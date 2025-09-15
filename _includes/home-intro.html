@@ -1,0 +1,23 @@
+{% comment %}
+  Home introduction section
+  Content is managed in _data/home.yml to keep it separate from layout
+  This is different from the about page content
+{% endcomment %}
+
+{% if page.url contains '/es/' %}
+  {% comment %} Spanish home introduction content {% endcomment %}
+  {% assign home_data = site.data.home.es %}
+  {% assign home_content = home_data.content %}
+{% else %}
+  {% comment %} English home introduction content {% endcomment %}
+  {% assign home_data = site.data.home.en %}
+  {% assign home_content = home_data.content %}
+{% endif %}
+
+{% if home_content != '' %}
+<div class="home-intro mb-5">
+  <div class="home-intro-content">
+    {{ home_content | markdownify }}
+  </div>
+</div>
+{% endif %}

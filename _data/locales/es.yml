@@ -15,6 +15,7 @@ tabs:
   tags: Etiquetas
   archives: Archivo
   about: Quien Soy
+  contact: Contacto
 
 # the text displayed in the search bar & search results
 search:
@@ -62,6 +63,10 @@ post:
     prompt: " de lectura"
   relate_posts: Lecturas adicionales
   share: Compartir
+  available_in: "Disponible en"
+  read_in: "Leer en"
+  no_translation: "Esta entrada no está disponible en otros idiomas"
+  translate_with_google: "Traducir con Google"
   button:
     next: Nuevo
     previous: Anterior

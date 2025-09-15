@@ -1,0 +1,70 @@
+{% comment %}
+  Display available translations for a post with Google Translate fallback
+  This include finds all posts with the same translation_id and displays them
+{% endcomment %}
+
+{% assign translations = '' | split: '' %}
+{% assign current_lang = 'en' %}
+{% if page.url contains '/es/' or page.collection == 'posts-es' %}
+  {% assign current_lang = 'es' %}
+{% endif %}
+
+{% if page.translation_id %}
+  {% comment %} Find all posts with the same translation_id {% endcomment %}
+  {% for post in site.posts %}
+    {% if post.translation_id == page.translation_id %}
+      {% assign translations = translations | push: post %}
+    {% endif %}
+  {% endfor %}
+  
+  {% for post in site.posts-es %}
+    {% if post.translation_id == page.translation_id %}
+      {% assign translations = translations | push: post %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if translations.size > 1 %}
+  <div class="post-translations mb-4">
+    <div class="d-flex align-items-center mb-2">
+      <i class="fas fa-language me-2"></i>
+      <h4 class="mb-0">{{ site.data.locales[lang].post.available_in }}</h4>
+    </div>
+    <div class="btn-group" role="group">
+      {% for translation in translations %}
+        {% if translation.url != page.url %}
+          <a href="{{ translation.url | relative_url }}" 
+             class="btn btn-outline-primary btn-sm">
+            {% if translation.lang == 'es' %}🇪🇸{% else %}🇬🇧{% endif %}
+            {{ translation.lang | upcase }}
+          </a>
+        {% else %}
+          <span class="btn btn-primary btn-sm">
+            {% if translation.lang == 'es' %}🇪🇸{% else %}🇬🇧{% endif %}
+            {{ translation.lang | upcase }}
+          </span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% elsif page.translation_id and translations.size == 1 %}
+  {% comment %} Only one translation available, offer Google Translate for the other language {% endcomment %}
+  <div class="post-translations mb-4">
+    <div class="d-flex align-items-center mb-2">
+      <i class="fas fa-language me-2"></i>
+      <h4 class="mb-0">{{ site.data.locales[lang].post.available_in }}</h4>
+    </div>
+    <div class="btn-group" role="group">
+      <span class="btn btn-primary btn-sm">
+        {% if current_lang == 'es' %}🇪🇸{% else %}🇬🇧{% endif %}
+        {{ current_lang | upcase }}
+      </span>
+      <a href="https://translate.google.com/translate?sl={{ current_lang }}&tl={% if current_lang == 'en' %}es{% else %}en{% endif %}&u={{ site.url }}{{ page.url }}" 
+         class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener">
+        <i class="fas fa-language me-1"></i>
+        {% if current_lang == 'en' %}🇪🇸{% else %}🇬🇧{% endif %}
+        {{ site.data.locales[lang].post.translate_with_google }}
+      </a>
+    </div>
+  </div>
+{% endif %}

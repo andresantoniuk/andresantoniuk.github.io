@@ -1,9 +1,8 @@
 <!-- Translation fallback notice -->
 {% comment %}
-  This include provides translation options for posts
-  - If a post is in English, offer Spanish translation
-  - If a post is in Spanish, offer English translation
-  - Always provide Google Translate as a fallback
+  This include provides Google Translate fallback for posts without translations
+  - Only shows if there's no translation_id or only one translation available
+  - Provides Google Translate option for the alternative language
 {% endcomment %}
 
 {% comment %}
@@ -15,57 +14,51 @@
 {% endif %}
 
 {% comment %}
-  Detect post language based on collection
-{% endcomment %}
-{% assign post_lang = 'en' %}
-{% if page.collection == 'posts-es' %}
-  {% assign post_lang = 'es' %}
-{% endif %}
-
-{% comment %}
-  Only show translation notice if we're on a post page
+  Only show translation notice if we're on a post page and no translations are available
 {% endcomment %}
 {% if page.layout == 'post' %}
-  <div class="translation-notice alert alert-info" role="alert">
-    <div class="d-flex align-items-center">
-      <i class="fas fa-language me-2"></i>
-      <div>
-        {% if post_lang == 'en' %}
-          <strong>🌐 Translation Notice:</strong> This post is currently only available in English.
-          <div class="mt-2">
-            <a href="https://translate.google.com/translate?sl=en&tl=es&u={{ site.url }}{{ page.url }}" 
-               class="btn btn-sm btn-outline-primary me-2" target="_blank" rel="noopener">
-              <i class="fas fa-language me-1"></i>Translate to Spanish
-            </a>
-            {% comment %}
-              Check if there's a Spanish version available
-            {% endcomment %}
-            {% assign spanish_post = site.posts-es | where: "title", page.title | first %}
-            {% if spanish_post %}
-              <a href="{{ spanish_post.url | relative_url }}" class="btn btn-sm btn-success">
-                <i class="fas fa-flag me-1"></i>Read in Spanish
+  {% assign has_translations = false %}
+  {% if page.translation_id %}
+    {% assign translation_count = 0 %}
+    {% for post in site.posts %}
+      {% if post.translation_id == page.translation_id %}
+        {% assign translation_count = translation_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% for post in site.posts-es %}
+      {% if post.translation_id == page.translation_id %}
+        {% assign translation_count = translation_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if translation_count > 1 %}
+      {% assign has_translations = true %}
+    {% endif %}
+  {% endif %}
+
+  {% unless has_translations %}
+    <div class="translation-notice alert alert-info" role="alert">
+      <div class="d-flex align-items-center">
+        <i class="fas fa-language me-2"></i>
+        <div>
+          {% if current_lang == 'en' %}
+            <strong>🌐 Translation Notice:</strong> {{ site.data.locales[lang].post.no_translation }}
+            <div class="mt-2">
+              <a href="https://translate.google.com/translate?sl=en&tl=es&u={{ site.url }}{{ page.url }}" 
+                 class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
+                <i class="fas fa-language me-1"></i>{{ site.data.locales[lang].post.translate_with_google }}
               </a>
-            {% endif %}
-          </div>
-        {% else %}
-          <strong>🌐 Aviso de Traducción:</strong> Esta entrada está disponible solo en español.
-          <div class="mt-2">
-            <a href="https://translate.google.com/translate?sl=es&tl=en&u={{ site.url }}{{ page.url }}" 
-               class="btn btn-sm btn-outline-primary me-2" target="_blank" rel="noopener">
-              <i class="fas fa-language me-1"></i>Traducir al Inglés
-            </a>
-            {% comment %}
-              Check if there's an English version available
-            {% endcomment %}
-            {% assign english_post = site.posts | where: "title", page.title | first %}
-            {% if english_post %}
-              <a href="{{ english_post.url | relative_url }}" class="btn btn-sm btn-success">
-                <i class="fas fa-flag me-1"></i>Read in English
+            </div>
+          {% else %}
+            <strong>🌐 Aviso de Traducción:</strong> {{ site.data.locales[lang].post.no_translation }}
+            <div class="mt-2">
+              <a href="https://translate.google.com/translate?sl=es&tl=en&u={{ site.url }}{{ page.url }}" 
+                 class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
+                <i class="fas fa-language me-1"></i>{{ site.data.locales[lang].post.translate_with_google }}
               </a>
-            {% endif %}
-          </div>
-        {% endif %}
+            </div>
+          {% endif %}
+        </div>
       </div>
     </div>
-  </div>
+  {% endunless %}
 {% endif %}

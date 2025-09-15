@@ -42,7 +42,7 @@ bundle exec jekyll serve
 - **Email**: andres@antoniuk.org
 - **GitHub**: [@andresantoniuk](https://github.com/andresantoniuk)
 - **LinkedIn**: [Juan Andrés Antoniuk](https://www.linkedin.com/in/andresantoniuk)
-- **X (Twitter)**: [@andresantoniuk](https://x.com/andresantoniuk)
+- **X**: [@andresantoniuk](https://x.com/andresantoniuk)
 
 ## 📄 License
 This project is open source and available under the [MIT License](LICENSE).

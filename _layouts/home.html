@@ -20,30 +20,19 @@ refactor: true
   
   {% comment %}
     Get English posts that don't have Spanish translations
-    Using filename matching to identify related posts instead of date matching
+    Using translation_id system for better matching
   {% endcomment %}
   {% assign fallback_posts = '' | split: '' %}
   {% for english_post in site.posts %}
     {% assign has_spanish_translation = false %}
-    {% for spanish_post in site.posts-es %}
-      {% comment %}
-        Check if this is the same post by comparing filenames
-        Extract base filename (without date prefix) for comparison
-      {% endcomment %}
-      {% assign english_filename = english_post.name | remove: '.md' %}
-      {% assign spanish_filename = spanish_post.name | remove: '.md' %}
-      
-      {% comment %}
-        Remove date prefix (YYYY-MM-DD-) from filenames to get base names
-      {% endcomment %}
-      {% assign english_base = english_filename | split: '-' | slice: 3, 999 | join: '-' %}
-      {% assign spanish_base = spanish_filename | split: '-' | slice: 3, 999 | join: '-' %}
-      
-      {% if english_base == spanish_base %}
-        {% assign has_spanish_translation = true %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
+    {% if english_post.translation_id %}
+      {% for spanish_post in site.posts-es %}
+        {% if spanish_post.translation_id == english_post.translation_id %}
+          {% assign has_spanish_translation = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
     {% unless has_spanish_translation %}
       {% assign fallback_posts = fallback_posts | push: english_post %}
     {% endunless %}
@@ -60,30 +49,19 @@ refactor: true
   
   {% comment %}
     Get Spanish posts that don't have English translations
-    Using filename matching to identify related posts instead of date matching
+    Using translation_id system for better matching
   {% endcomment %}
   {% assign fallback_posts = '' | split: '' %}
   {% for spanish_post in site.posts-es %}
     {% assign has_english_translation = false %}
-    {% for english_post in site.posts %}
-      {% comment %}
-        Check if this is the same post by comparing filenames
-        Extract base filename (without date prefix) for comparison
-      {% endcomment %}
-      {% assign english_filename = english_post.name | remove: '.md' %}
-      {% assign spanish_filename = spanish_post.name | remove: '.md' %}
-      
-      {% comment %}
-        Remove date prefix (YYYY-MM-DD-) from filenames to get base names
-      {% endcomment %}
-      {% assign english_base = english_filename | split: '-' | slice: 3, 999 | join: '-' %}
-      {% assign spanish_base = spanish_filename | split: '-' | slice: 3, 999 | join: '-' %}
-      
-      {% if english_base == spanish_base %}
-        {% assign has_english_translation = true %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
+    {% if spanish_post.translation_id %}
+      {% for english_post in site.posts %}
+        {% if english_post.translation_id == spanish_post.translation_id %}
+          {% assign has_english_translation = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
     {% unless has_english_translation %}
       {% assign fallback_posts = fallback_posts | push: spanish_post %}
     {% endunless %}
@@ -94,9 +72,16 @@ refactor: true
 {% endif %}
 
 {% comment %}
-  Combine primary and fallback posts
+  Combine primary and fallback posts, then sort by date
 {% endcomment %}
 {% assign all_posts = primary_posts | concat: fallback_posts %}
+{% assign all_posts = all_posts | sort: 'date' | reverse %}
+
+<!-- Home Introduction Section -->
+{% include home-intro.html %}
+
+<!-- Posts Section -->
+<div class="posts-section">
 
 {% if all_posts.size > 0 %}
   <div id="post-list" class="flex-grow-1 px-xl-1">
@@ -152,10 +137,24 @@ refactor: true
     <div class="card-wrapper">
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title">No posts found</h1>
-          <p class="card-text">There are no posts available at the moment.</p>
+          <h1 class="card-title">
+            {% if page.url contains '/es/' %}
+              No se encontraron entradas
+            {% else %}
+              No posts found
+            {% endif %}
+          </h1>
+          <p class="card-text">
+            {% if page.url contains '/es/' %}
+              No hay entradas disponibles en este momento.
+            {% else %}
+              There are no posts available at the moment.
+            {% endif %}
+          </p>
         </div>
       </div>
     </div>
   </div>
 {% endif %}
+</div>
+<!-- End Posts Section -->
