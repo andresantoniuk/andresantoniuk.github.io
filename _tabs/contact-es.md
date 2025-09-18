@@ -26,17 +26,10 @@ Usa el calendario a continuación para agendar tu consulta inicial:
 
 ## Otras Formas de Conectar
 
-- **Email**: [andres@antoniuk.org](mailto:andres@antoniuk.org)
+- **Email**: [andres (at) antoniuk.org](mailto:andres@antoniuk.org)
 - **LinkedIn**: [Juan Andrés Antoniuk](https://www.linkedin.com/in/andresantoniuk)
 - **X/Twitter**: [@andresantoniuk](https://x.com/andresantoniuk)
 - **GitHub**: [@andresantoniuk](https://github.com/andresantoniuk)
 
 ## Qué Esperar
-
-Durante nuestra consulta inicial, discutiremos:
-- Tus desafíos tecnológicos actuales
-- Estructura y dinámicas del equipo
-- Objetivos estratégicos y metas
-- Soluciones potenciales y próximos pasos
-
-*Las sesiones típicamente duran 30-45 minutos y son completamente gratuitas sin obligación.*
+Durante nuestra consulta inicial, discutiremos sus desafíos tecnológicos actuales. Esta sesión es completamente gratuita y sin ningún compromiso posterior.

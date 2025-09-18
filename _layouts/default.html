@@ -35,16 +35,41 @@ layout: compress
           <!-- panel -->
           <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
             <div class="access">
-              <!-- Simple language-based panel content -->
+              <!-- Show all posts and tags regardless of language -->
+              {% comment %}
+                Combine all posts from both collections and sort by date
+              {% endcomment %}
+              {% assign all_posts = site.posts | concat: site.posts-es %}
+              {% assign all_posts = all_posts | sort: 'date' | reverse %}
+              
+              {% comment %}
+                Combine all tags from both collections
+              {% endcomment %}
+              {% assign all_tags = '' | split: '' %}
+              {% for post in site.posts %}
+                {% for tag in post.tags %}
+                  {% unless all_tags contains tag %}
+                    {% assign all_tags = all_tags | push: tag %}
+                  {% endunless %}
+                {% endfor %}
+              {% endfor %}
+              {% for post in site.posts-es %}
+                {% for tag in post.tags %}
+                  {% unless all_tags contains tag %}
+                    {% assign all_tags = all_tags | push: tag %}
+                  {% endunless %}
+                {% endfor %}
+              {% endfor %}
+
               {% if page.url contains '/es/' %}
-                <!-- Spanish page - show Spanish content only -->
+                <!-- Spanish page labels -->
                 <section id="access-lastmod">
                   <h2 class="panel-heading">Entradas Recientes</h2>
                   <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
-                    {% for post in site.posts-es limit: 5 %}
+                    {% for post in all_posts limit: 5 %}
                       <li class="text-truncate lh-lg">
                         <a href="{{ post.url | relative_url }}">
-                          🇪🇸 {{ post.title }}
+                          {% if post.collection == 'posts-es' %}🇪🇸{% else %}🇬🇧{% endif %} {{ post.title }}
                         </a>
                       </li>
                     {% endfor %}
@@ -54,16 +79,7 @@ layout: compress
                 <section>
                   <h2 class="panel-heading">Etiquetas Populares</h2>
                   <div class="d-flex flex-wrap mt-3 mb-1 me-3">
-                    {% assign spanish_tags = '' | split: '' %}
-                    {% for post in site.posts-es %}
-                      {% for tag in post.tags %}
-                        {% unless spanish_tags contains tag %}
-                          {% assign spanish_tags = spanish_tags | push: tag %}
-                        {% endunless %}
-                      {% endfor %}
-                    {% endfor %}
-                    
-                    {% for tag in spanish_tags limit: 8 %}
+                    {% for tag in all_tags limit: 8 %}
                       {% assign url = tag | slugify | url_encode | prepend: '/es/tags/' | append: '/' %}
                       <a class="post-tag btn btn-outline-primary" href="{{ url | relative_url }}">
                         {{ tag }}
@@ -72,14 +88,14 @@ layout: compress
                   </div>
                 </section>
               {% else %}
-                <!-- English page - show English content only -->
+                <!-- English page labels -->
                 <section id="access-lastmod">
                   <h2 class="panel-heading">Recently Updated</h2>
                   <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
-                    {% for post in site.posts limit: 5 %}
+                    {% for post in all_posts limit: 5 %}
                       <li class="text-truncate lh-lg">
                         <a href="{{ post.url | relative_url }}">
-                          🇺🇸 {{ post.title }}
+                          {% if post.collection == 'posts-es' %}🇪🇸{% else %}🇬🇧{% endif %} {{ post.title }}
                         </a>
                       </li>
                     {% endfor %}
@@ -89,16 +105,7 @@ layout: compress
                 <section>
                   <h2 class="panel-heading">Trending Tags</h2>
                   <div class="d-flex flex-wrap mt-3 mb-1 me-3">
-                    {% assign english_tags = '' | split: '' %}
-                    {% for post in site.posts %}
-                      {% for tag in post.tags %}
-                        {% unless english_tags contains tag %}
-                          {% assign english_tags = english_tags | push: tag %}
-                        {% endunless %}
-                      {% endfor %}
-                    {% endfor %}
-                    
-                    {% for tag in english_tags limit: 8 %}
+                    {% for tag in all_tags limit: 8 %}
                       {% assign url = tag | slugify | url_encode | prepend: '/tags/' | append: '/' %}
                       <a class="post-tag btn btn-outline-primary" href="{{ url | relative_url }}">
                         {{ tag }}

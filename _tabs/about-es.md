@@ -7,12 +7,11 @@ lang: es
 permalink: /es/about/
 ---
 
-Líder/ingeniero tecnológico experimentado con una sólida formación en ingeniería y más de 25 años de experiencia en telecomunicaciones, fintech e industria automotriz. Soy un profesional flexible, igualmente cómodo con el desarrollo estratégico de negocios y la resolución "práctica" de problemas técnicos.
+En la intersección de la tecnología y la estrategia de negocio, aprovecho mis más de 25 años de experiencia para impulsar la innovación y el crecimiento.
 
-He gestionado exitosamente equipos técnicos, definido hojas de ruta tecnológicas y liderado proyectos de innovación. Mi experiencia incluye arquitectura de software, tecnologías de código abierto, modernización de sistemas legacy, sistemas de alta disponibilidad críticos para la misión, infraestructura cloud/híbrida.
+Mi carrera abarca múltiples industrias, donde he ocupado roles clave de liderazgo corporativo, incluyendo CTO, CEO, y también he tenido mis propios emprendimientos. En estas posiciones, me especialicé en liderar equipos técnicos, definir hojas de ruta, estrategias de tecnología y entregar proyectos de alto impacto. Mi experiencia incluye modernización de sistemas legacy, infraestructura en la nube/híbrida, análisis de datos, y sistemas de misión crítica de alta disponibilidad a nivel empresarial, siempre con un enfoque constante en el logro de los objetivos del negocio.
 
-Como usuario feliz de Linux desde 1999, tengo experiencia con Linux embebido, drivers de kernel de bajo nivel, DevOps, análisis de datos, desarrollo de software, etc.
+También soy un feliz usuario de Linux desde 1999, con experiencia práctica en Linux embedded, kernel drivers, DevOps y desarrollo de software. Mi pasión es transformar desafíos técnicos complejos en ventajas estratégicas para el negocio.
 
-> **Lo más importante: ¡esposo y padre orgulloso!**
->
-> La vida es mucho más que trabajo y logros profesionales. Estoy en un viaje continuo para encontrar y cumplir el propósito de Dios para mí en este mundo.
+---
+Más allá de mi vida profesional, soy un esposo y padre orgulloso. La vida es un viaje continuo para encontrar y cumplir el propósito de Dios, y estoy agradecido por todas las bendiciones y oportunidades que he tenido.

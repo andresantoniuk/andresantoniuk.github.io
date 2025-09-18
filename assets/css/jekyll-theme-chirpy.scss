@@ -29,3 +29,93 @@
     height: 600px !important;
   }
 }
+
+/* Force left alignment for post titles regardless of language */
+.card-title {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Force left alignment for all card content */
+.card-body {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Force left alignment for small elements in cards */
+.card-body small {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Force left alignment for post preview links */
+.post-preview {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Force left alignment for all elements in post cards */
+#post-list .card-wrapper .card .card-body * {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Override any RTL behavior for Spanish pages */
+html[lang="es"] .card-title,
+html[lang="es"] .card-body,
+html[lang="es"] .post-preview {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Force left alignment for all text in post cards - most specific rule */
+#post-list .card-wrapper .card .card-body h1,
+#post-list .card-wrapper .card .card-body small,
+#post-list .card-wrapper .card .card-body p {
+  text-align: left !important;
+  direction: ltr !important;
+  float: none !important;
+  clear: both !important;
+}
+
+/* Force left alignment for all elements in post cards - even more specific */
+#post-list .card-wrapper .card .card-body * {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Force left alignment for post preview links and all their children */
+.post-preview,
+.post-preview * {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Override any RTL behavior for all languages */
+html[lang="en"] .card-title,
+html[lang="en"] .card-body,
+html[lang="en"] .post-preview,
+html[lang="es"] .card-title,
+html[lang="es"] .card-body,
+html[lang="es"] .post-preview {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Nuclear option - force left alignment on everything */
+#post-list .card-wrapper,
+#post-list .card-wrapper *,
+#post-list .card-wrapper .card,
+#post-list .card-wrapper .card *,
+#post-list .card-wrapper .card .card-body,
+#post-list .card-wrapper .card .card-body *,
+#post-list .card-wrapper .card .card-body h1,
+#post-list .card-wrapper .card .card-body h1 *,
+#post-list .card-wrapper .card .card-body small,
+#post-list .card-wrapper .card .card-body small * {
+  text-align: left !important;
+  direction: ltr !important;
+  float: none !important;
+  clear: both !important;
+  unicode-bidi: normal !important;
+}

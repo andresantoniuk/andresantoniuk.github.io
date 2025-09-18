@@ -39,7 +39,7 @@ bundle exec jekyll serve
 
 ## 📱 Contact
 - **Website**: [antoniuk.org](https://antoniuk.org)
-- **Email**: andres@antoniuk.org
+- **Email**: andres (at) antoniuk.org
 - **GitHub**: [@andresantoniuk](https://github.com/andresantoniuk)
 - **LinkedIn**: [Juan Andrés Antoniuk](https://www.linkedin.com/in/andresantoniuk)
 - **X**: [@andresantoniuk](https://x.com/andresantoniuk)

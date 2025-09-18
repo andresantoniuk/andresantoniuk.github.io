@@ -4,12 +4,11 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Seasoned technology leader/engineer with a solid engineering background and over 25 years of experience in telecommunications, fintech, and the automotive industry. I am a flexible professional, equally comfortable with strategic business development and "hands-on" into technical issues.
+At the intersection of technology and business strategy, I leverage over 25 years of experience to drive innovation and growth.
 
-I have successfully managed technical teams, defined technology roadmaps, and led innovation projects. My expertise includes software architecture, open-source technologies, legacy modernization, high availability mission critical systems, cloud/hybrid infrastructure.
+My career spans multiple industries, where I've held key corporate leadership roles, including CTO, CEO and also founded my own ventures. In these positions, I specialized in leading technical teams, defining strategic technology roadmaps, and delivering high-impact projects. My expertise includes legacy modernization, cloud/hybrid infrastructure, data analytics, and high-availability enterprise mission-critical systems, with a constant focus on achieving business objectives.
 
-As a happy Linux user since 1999, I have experience with embedded Linux, low-level kernel drivers, DevOps, data analysis, software development, etc.
+I am also a happy Linux user since 1999, with hands-on experience in embedded Linux, kernel drivers, DevOps, and software development. I thrive on transforming complex technical challenges into strategic business advantages.
 
->The most important: proud husband and father!
->
-> Life is much more than work and professional achievements. I'm on a continuous journey to find and fulfill God's purpose for me in this world.
+---
+Beyond my professional life, I am a proud husband and father. Life is a continuous journey to find and fulfill God's purpose, and I am grateful for all the blessings and opportunities I had till now.

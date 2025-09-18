@@ -85,16 +85,16 @@ refactor: true
 
 {% if all_posts.size > 0 %}
   <div id="post-list" class="flex-grow-1 px-xl-1">
-    {% for post in all_posts limit: 15 %}
+    {% for post in all_posts limit: site.paginate %}
       <article class="card-wrapper card">
-        <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+        <a href="{{ post.url | relative_url }}" class="post-preview row g-0" style="text-align: left !important; direction: ltr !important; flex-direction: row !important;">
           <div class="col-md-12">
-            <div class="card-body d-flex flex-column">
-              <h1 class="card-title my-2 mt-md-0">
+            <div class="card-body d-flex flex-column" style="text-align: left !important; direction: ltr !important;">
+              <h1 class="card-title my-2 mt-md-0 text-start" style="text-align: left !important; direction: ltr !important;">
                 {% if post.collection == 'posts-es' %}
                   🇪🇸 {{ post.title }}
                   {% unless page.url contains '/es/' %}
-                    <small class="text-muted d-block mt-1">
+                    <small class="text-muted d-block mt-1 text-start" style="text-align: left !important; direction: ltr !important;">
                       <i class="fas fa-language me-1"></i>
                       Only available in Spanish - 
                       <a href="https://translate.google.com/translate?sl=es&tl=en&u={{ site.url }}{{ post.url }}" 
@@ -106,7 +106,7 @@ refactor: true
                 {% else %}
                   🇬🇧 {{ post.title }}
                   {% if page.url contains '/es/' %}
-                    <small class="text-muted d-block mt-1">
+                    <small class="text-muted d-block mt-1 text-start" style="text-align: left !important; direction: ltr !important;">
                       <i class="fas fa-language me-1"></i>
                       Solo disponible en inglés - 
                       <a href="https://translate.google.com/translate?sl=en&tl=es&u={{ site.url }}{{ post.url }}" 

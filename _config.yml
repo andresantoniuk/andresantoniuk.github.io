@@ -40,7 +40,7 @@ languages: ["en", "es"]
 default_lang: "en"
 exclude_from_localization: ["assets", "javascript", "css", "/sw.min.js", "/app.min.js", "/sitemap.xml", "/robots.txt", "/feed.xml"]
 
-paginate: 10
+paginate: 3
 baseurl: ""
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
