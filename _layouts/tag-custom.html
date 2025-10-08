@@ -1,0 +1,31 @@
+---
+layout: page
+# The Tag layout with support for both posts and posts-es collections
+---
+
+{% include lang.html %}
+
+{% comment %}
+  Get all posts from both collections that match this tag
+{% endcomment %}
+{% assign all_posts = site.posts | concat: site.posts-es %}
+{% assign tag_posts = all_posts | where: 'tags', page.tag %}
+{% assign sorted_posts = tag_posts | sort: 'date' | reverse %}
+
+<div id="page-tag">
+  <h1 class="ps-lg-2">
+    <i class="fa fa-tag fa-fw text-muted"></i>
+    {{ page.title }}
+    <span class="lead text-muted ps-2">{{ sorted_posts | size }}</span>
+  </h1>
+
+  <ul class="content ps-0">
+    {% for post in sorted_posts %}
+      <li class="d-flex justify-content-between px-md-3">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="dash flex-grow-1"></span>
+        {% include datetime.html date=post.date class='text-muted small text-nowrap' lang=lang %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
