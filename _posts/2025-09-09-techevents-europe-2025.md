@@ -8,6 +8,9 @@ translation_id: techevents-europe-2025
 categories: ["events"]
 tags: ["linkedin-import", "events", "open-source", "data", "automotive", "trips", "technology"]
 linkedin_url: https://www.linkedin.com/pulse/techevents-europe-2025-juan-andr%C3%A9s-antoniuk-cvv3f
+excerpt: "A few days ago I shared that tech events are invaluable opportunities to expand your perspective and connect with inspiring people. This is what I experienced during my recent attendance to Linux Foundation Europe and PyData Berlin events."
+toc: true
+comments: true
 ---
 
 ---

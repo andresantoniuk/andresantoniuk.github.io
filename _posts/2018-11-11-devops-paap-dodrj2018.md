@@ -8,6 +8,9 @@ translation_id: devops-paap-dodrj2018
 categories: ["events"]
 tags: ["linkedin-import", "devops", "events", "trips", "technology"]
 linkedin_url: https://www.linkedin.com/pulse/devops-paap-dodrj2018-juan-andr%C3%A9s-antoniuk-buchtik
+excerpt: "Reflections on DevOps practices and Platform as a Product (PaaP) concepts from the DevOps Days Rio de Janeiro 2018 conference."
+toc: true
+comments: true
 ---
 
 ---

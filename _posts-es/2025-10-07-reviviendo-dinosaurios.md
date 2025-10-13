@@ -1,9 +1,12 @@
 ---
 title: "Reviviendo Dinosaurios"
 date: 2025-10-07
-categories: [technology, career]
-tags: [technology, career, business, entrepreneurship]
+author: andresantoniuk
+categories: ["technology", "career"]
+tags: ["technology", "career", "business", "entrepreneurship"]
 lang: es
+alt_lang: en
+translation_id: reviviendo-dinosaurios
 toc: true
 comments: true
 ---

@@ -8,6 +8,9 @@ translation_id: fintech-10-anos
 categories: ["career"]
 tags: ["linkedin-import", "career", "fintech"]
 linkedin_url: https://www.linkedin.com/pulse/fintech-10-a%C3%B1os-juan-andr%C3%A9s-antoniuk-7tlkf
+excerpt: "Una reflexión sobre más de 10 años trabajando en fintech, desde los primeros pasos hasta las tendencias actuales en tecnología financiera."
+toc: true
+comments: true
 ---
 
 ---

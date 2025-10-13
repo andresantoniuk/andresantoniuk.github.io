@@ -8,6 +8,9 @@ translation_id: nuevos-rumbos
 categories: ["career"]
 tags: ["linkedin-import", "career", "fintech"]
 linkedin_url: https://www.linkedin.com/pulse/nuevos-rumbos-juan-andr%C3%A9s-antoniuk-u2qif
+excerpt: "Hace pocos meses terminaba un artículo con la pregunta: ¿Cómo serán los próximos 10 años? Y respondía: Difícil saberlo, pero no tengan duda que seguiré buscando y aceptando desafíos. Lo que ahora sé es que ya no serán en Totalnet Uruguay."
+toc: true
+comments: true
 ---
 
 ---

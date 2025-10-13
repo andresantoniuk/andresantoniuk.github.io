@@ -1,0 +1,15 @@
+/* Simple Language Notice Styles */
+.language-notice-simple {
+  display: block;
+  font-size: 0.7rem;
+  line-height: 1.1;
+  color: var(--text-muted-color);
+  margin-top: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  i {
+    margin-right: 0.25rem;
+  }
+}

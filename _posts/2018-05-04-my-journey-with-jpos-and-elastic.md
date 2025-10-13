@@ -8,6 +8,9 @@ translation_id: my-journey-with-jpos-and-elastic
 categories: ["technology"]
 tags: ["linkedin-import", "fintech", "jpos", "elastic", "data", "technology"]
 linkedin_url: https://www.linkedin.com/pulse/my-journey-jpos-elastic-juan-andr%C3%A9s-antoniuk-buchtik
+excerpt: "A personal journey through the evolution of payment systems, from jPOS to Elasticsearch, exploring the challenges and solutions in fintech infrastructure."
+toc: true
+comments: true
 ---
 
 ---
