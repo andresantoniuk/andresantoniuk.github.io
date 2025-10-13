@@ -15,7 +15,7 @@ Pero también es un hecho que la brecha tecnológica entre estos nuevos jugadore
 
 Nada mejor que un comic para fijar la idea:
 
-![Tech Debt]({{ '/assets/img/posts/tech_debt.jpeg' | relative_url }})
+![Tech Debt]({{ '/assets/img/posts/reviviendo-dinosaurios/tech_debt.jpeg' | relative_url }})
 
 > [Ver en X](https://x.com/PR0GRAMMERHUM0R/status/1648189640019439618)
 
@@ -23,7 +23,7 @@ Estos últimos meses los he dedicado a tomar muchos cafés con actores relevante
 
 No hay recetas mágicas ni una única estrategia dado que cada plataforma que viene soportando los negocios hace tanto tiempo tiene sus características únicas y hay que tratarlas con muchísimo respeto.
 
-![modernization_art.png]({{ 'assets/img/posts/modernization_art.png' | relative_url }})
+![modernization_art.png]({{ '/assets/img/posts/reviviendo-dinosaurios/modernization_art.png' | relative_url }})
 
 > [Post en Linkeding](https://www.linkedin.com/posts/andresantoniuk_long-running-critical-technology-platforms-activity-7369123481759678468-G75g)
 
@@ -34,6 +34,6 @@ Para que esta modernización sea posible, es imprescindible mantener el nivel de
 Pero si todo esto parece demasiado técnico/complejo, la respuesta rápida a familia y amigos sobre a que me voy a dedicar es que voy a "revivir dinosaurios".
 
 
-![reviviendo_dinosaurios]({{ 'assets/img/posts/reviviendo_dinosaurios.jpeg' | relative_url }})
+![reviviendo_dinosaurios]({{ '/assets/img/posts/reviviendo-dinosaurios/reviviendo_dinosaurios.jpeg' | relative_url }})
 
 > [Ver en X](https://www.linkedin.com/posts/andresantoniuk_soon-activity-7376015120776384512-pkYg)
