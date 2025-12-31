@@ -6,7 +6,9 @@ _site/
 
 # Ruby / Bundler
 .bundle/
-Gemfile.lock
+vendor/
+# Gemfile.lock should be tracked in applications for reproducible builds
+# Gemfile.lock
 
 # Node
 node_modules/
@@ -16,7 +18,18 @@ yarn-error.log
 # OS-specific
 .DS_Store
 Thumbs.db
+.Spotlight-V100
+.Trashes
 
+# Editor / IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.swp
+
+# Logs
+*.log
 
 # Generated files
 assets/js/dist/
@@ -25,4 +38,3 @@ _sass/vendors/
 # Tools directory (keep the scripts but ignore any generated content)
 tools/__pycache__/
 tools/*.pyc
-

@@ -1,6 +1,6 @@
 ---
 layout: tag-custom
-title: "Open Source"
+title: "Open-source"
 tag: open-source
 permalink: /tags/open-source/
 ---

@@ -1,6 +1,6 @@
 ---
 layout: tag-custom
-title: "jPOS"
+title: "Jpos"
 tag: jpos
 permalink: /tags/jpos/
 ---

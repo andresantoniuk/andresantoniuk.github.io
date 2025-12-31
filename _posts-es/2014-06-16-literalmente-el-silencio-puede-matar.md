@@ -6,7 +6,7 @@ lang: es
 alt_lang: en
 translation_id: literalmente-el-silencio-puede-matar
 categories: ["automotive"]
-tags: ["linkedin-import","opinion", "automotive", "safety"]
+tags: ["linkedin-import", "opinion", "automotive", "safety"]
 linkedin_url: https://www.linkedin.com/pulse/20140616145504-9925762--literalmente-el-silencio-puede-matar
 ---
 

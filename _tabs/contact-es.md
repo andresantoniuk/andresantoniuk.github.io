@@ -26,6 +26,7 @@ Usa el calendario a continuación para agendar tu consulta inicial:
 
 ## Otras Formas de Conectar
 
+- **Empresa**: [JAAB Tech](https://jaab.tech)
 - **Email**: [andres (at) antoniuk.org](mailto:andres@antoniuk.org)
 - **LinkedIn**: [Juan Andrés Antoniuk](https://www.linkedin.com/in/andresantoniuk)
 - **X/Twitter**: [@andresantoniuk](https://x.com/andresantoniuk)

@@ -6,7 +6,7 @@ lang: es
 alt_lang: en
 translation_id: seguridad-la-causa-de-los-pueblos-no-admite-la-menor-demora
 categories: ["automotive"]
-tags: ["linkedin-import","opinion", "automotive", "safety"]
+tags: ["linkedin-import", "opinion", "automotive", "safety"]
 linkedin_url: https://www.linkedin.com/pulse/20140629225138-9925762-la-causa-de-los-pueblos-no-admite-la-menor-demora
 ---
 

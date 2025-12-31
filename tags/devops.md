@@ -1,6 +1,6 @@
 ---
 layout: tag-custom
-title: "DevOps"
+title: "Devops"
 tag: devops
 permalink: /tags/devops/
 ---

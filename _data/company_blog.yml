@@ -1,9 +1,39 @@
+- title: 'MFA: Cuando la normativa choca con la realidad'
+  url: https://jaab.tech/blog/legacy-mfa/
+  date: '2025-12-10'
+  excerpt: Uruguay se suma a la tendencia global de exigir Doble Factor de Autenticación
+    por decreto en la administración pública. Analizamos el desafío técnico de blindar
+    sistemas con décadas de antigüedad y las estrategias para lograrlo.
+  language: es
+  source: JAAB Company Blog
+  external: true
+  image: https://jaab.tech/assets/images/blog/Gemini_Generated_Ilegacy_mfa.png
+- title: 'Legacy: puerta abierta al cibercrimen.'
+  url: https://jaab.tech/blog/puerta-abierta/
+  date: '2025-10-28'
+  excerpt: 'La obsolescencia tecnológica es una amenaza silenciosa: sistemas antiguos
+    facilitan ciberataques y fallos graves. Modernizar es clave para proteger tu organización.'
+  language: es
+  source: JAAB Company Blog
+  external: true
+  image: https://jaab.tech/assets/images/blog/kombi-legacy.jpg
+- title: Viejas Glorias
+  url: https://jaab.tech/blog/viejas-glorias/
+  date: '2025-10-20'
+  excerpt: Al igual que las viejas glorias futbolísticas de Uruguay, tecnologías legacy
+    como OpenVMS y Solaris siguen siendo, en 2025, el pilar operativo de grandes empresas
+    e instituciones.
+  language: es
+  source: JAAB Company Blog
+  external: true
+  image: https://jaab.tech/assets/images/blog/uruguay_1950.jpg
 - title: Valor patrimonial
-  url: https://jaab.tech/blog/valor-patrimonial
+  url: https://jaab.tech/blog/valor-patrimonial/
   date: '2025-10-13'
   excerpt: JAAB participó en la inauguración de la renovada Casa El Globo teniendo
     la firme convicción de que renovaremos muchas plataformas tecnológicas en América
-    Latina...
+    Latina, respetando su valor patrimonial pero habilitando prestaciones como lo
+    exigen los tiempos modernos.
   language: es
   source: JAAB Company Blog
   external: true

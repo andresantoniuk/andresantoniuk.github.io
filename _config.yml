@@ -38,7 +38,17 @@ plugins:
 # Multilingual settings (Chirpy native)
 languages: ["en", "es"]
 default_lang: "en"
-exclude_from_localization: ["assets", "javascript", "css", "/sw.min.js", "/app.min.js", "/sitemap.xml", "/robots.txt", "/feed.xml"]
+exclude_from_localization:
+  [
+    "assets",
+    "javascript",
+    "css",
+    "/sw.min.js",
+    "/app.min.js",
+    "/sitemap.xml",
+    "/robots.txt",
+    "/feed.xml",
+  ]
 
 paginate: 3
 baseurl: ""
@@ -113,10 +123,10 @@ exclude:
   - "eslint.config.js"
   - "assets/404.html"
 jekyll-archives:
-  enabled: [categories, tags]
+  enabled: []
   layouts:
-    category: category
-    tag: tag
+    category: category-custom
+    tag: tag-custom
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/

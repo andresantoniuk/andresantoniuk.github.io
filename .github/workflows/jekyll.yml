@@ -2,7 +2,7 @@ name: Build and Deploy Jekyll site to Pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -24,11 +24,22 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
+          ruby-version: "3.1"
           bundler-cache: true
 
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Generate Tags and Categories
+        run: |
+          pip install pyyaml
+          python tools/generate_tags_categories.py
 
       - name: Build with Jekyll
         run: |

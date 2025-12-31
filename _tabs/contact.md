@@ -23,6 +23,7 @@ Use the calendar below to schedule your initial consultation:
 
 ## Other Ways to Connect
 
+- **Company**: [JAAB Tech](https://jaab.tech)
 - **Email**: [andres (at) antoniuk.org](mailto:andres@antoniuk.org)
 - **LinkedIn**: [Juan Andrés Antoniuk](https://www.linkedin.com/in/andresantoniuk)
 - **X/Twitter**: [@andresantoniuk](https://x.com/andresantoniuk)

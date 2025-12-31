@@ -1,6 +1,6 @@
 ---
 layout: tag-custom
-title: "LinkedIn Import"
+title: "Linkedin-import"
 tag: linkedin-import
 permalink: /tags/linkedin-import/
 ---
