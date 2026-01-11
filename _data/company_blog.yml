@@ -1,3 +1,12 @@
+- title: 'fluxrig: Orquestando Protocolos'
+  url: https://jaab.tech/blog/fluxrig/
+  date: '2026-01-09'
+  excerpt: fluxrig ofrece orquestación distribuida y Open Source para tus operaciones
+    de misión crítica, eliminando la deuda técnica de integraciones complejas.
+  language: es
+  source: JAAB Company Blog
+  external: true
+  image: https://jaab.tech/assets/images/Gemini_Generated_Image_stage.png
 - title: 'MFA: Cuando la normativa choca con la realidad'
   url: https://jaab.tech/blog/legacy-mfa/
   date: '2025-12-10'
