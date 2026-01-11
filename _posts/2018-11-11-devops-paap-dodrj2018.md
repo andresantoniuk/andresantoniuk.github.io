@@ -11,6 +11,9 @@ linkedin_url: https://www.linkedin.com/pulse/devops-paap-dodrj2018-juan-andr%C3%
 excerpt: "Reflections on DevOps practices and Platform as a Product (PaaP) concepts from the DevOps Days Rio de Janeiro 2018 conference."
 toc: true
 comments: true
+image:
+  path: /assets/img/posts/devops-paap-dodrj2018/header_image.jpg
+  alt: "DevOps PaaP"
 ---
 
 ---
@@ -19,7 +22,8 @@ comments: true
 
 ---
 
-![Article header image]({{ '/assets/img/posts/devops-paap-dodrj2018/header_image.jpg' | relative_url }})
+
+
 
 I get to know the term DevOps a few years ago but even I have it as a buzz word in [my CV](https://www.linkedin.com/feed/update/urn:li:activity:6266508606087196672), before this weekend that I attended the fantastic [RioDevOpsDays](https://www.devopsdays.org/events/2018-rio-de-janeiro) I never invested so many hours together to deep dive into DevOps
 

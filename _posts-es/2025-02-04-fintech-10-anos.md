@@ -11,6 +11,9 @@ linkedin_url: https://www.linkedin.com/pulse/fintech-10-a%C3%B1os-juan-andr%C3%A
 excerpt: "Una reflexión sobre más de 10 años trabajando en fintech, desde los primeros pasos hasta las tendencias actuales en tecnología financiera."
 toc: true
 comments: true
+image:
+  path: /assets/img/posts/fintech-10-anos/header_image.jpg
+  alt: "fintech: +10 años"
 ---
 
 ---
@@ -19,7 +22,8 @@ comments: true
 
 ---
 
-![Article header image]({{ '/assets/img/posts/fintech-10-anos/header_image.jpg' | relative_url }})
+
+
 
 Hasta la adolescencia yo profesaba fervientemente que cuando fuera grande sería doctor, pero no cualquiera: un Pediatra. La verdad es que no recuerdo exactamente en qué momento abandoné la idea de la medicina, pero seguramente tenga que ver con la primera computadora que tuve en casa a mis 16 años (AT 286, en préstamo por varios meses).
 

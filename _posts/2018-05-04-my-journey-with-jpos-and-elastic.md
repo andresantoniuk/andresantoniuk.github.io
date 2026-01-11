@@ -11,6 +11,9 @@ linkedin_url: https://www.linkedin.com/pulse/my-journey-jpos-elastic-juan-andr%C
 excerpt: "A personal journey through the evolution of payment systems, from jPOS to Elasticsearch, exploring the challenges and solutions in fintech infrastructure."
 toc: true
 comments: true
+image:
+  path: /assets/img/posts/my-journey-with-jpos-and-elastic/header_image.jpg
+  alt: "jPOS and Elastic"
 ---
 
 ---
@@ -19,7 +22,8 @@ comments: true
 
 ---
 
-![Article header image]({{ '/assets/img/posts/my-journey-with-jpos-and-elastic/header_image.jpg' | relative_url }})
+
+
 
 *“If you cannot measure it, it doesn't exist”* is a very disputed idea and personally I agree with [this article that affirms that this is no true](https://www.forbes.com/sites/lizryan/2014/02/10/if-you-cant-measure-it-you-cant-manage-it-is-bs), but I also consider that you can’t be blind on things that should be measured.
 

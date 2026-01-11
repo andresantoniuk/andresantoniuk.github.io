@@ -13,5 +13,7 @@ Mi carrera abarca múltiples industrias, donde he ocupado roles clave de lideraz
 
 También soy un feliz usuario de Linux desde 1999, con experiencia práctica en Linux embedded, kernel drivers, DevOps y desarrollo de software. Mi pasión es transformar desafíos técnicos complejos en ventajas estratégicas para el negocio.
 
+Actualmente, estoy enfocado en construir [JAAB Tech](https://jaab.tech/), una consultora boutique que ayuda a empresas en América Latina a optimizar sus operaciones tecnológicas y mitigar riesgos en entornos legacy.
+
 ---
 Más allá de mi vida profesional, soy un esposo y padre orgulloso. La vida es un viaje continuo para encontrar y cumplir el propósito de Dios, y estoy agradecido por todas las bendiciones y oportunidades que he tenido.

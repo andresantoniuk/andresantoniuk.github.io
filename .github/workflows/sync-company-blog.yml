@@ -47,7 +47,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add _data/company_blog.yml _data/company_blog.json
+          git add _data/company_blog.yml
           git commit -m "Update company blog entries [automated]"
           git push
 

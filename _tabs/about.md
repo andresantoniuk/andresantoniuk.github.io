@@ -10,5 +10,7 @@ My career spans multiple industries, where I've held key corporate leadership ro
 
 I am also a happy Linux user since 1999, with hands-on experience in embedded Linux, kernel drivers, DevOps, and software development. I thrive on transforming complex technical challenges into strategic business advantages.
 
+Currently, I am focused on building [JAAB Tech](https://jaab.tech/), a boutique consultancy helping companies in Latin America optimize their technology operations and mitigate risks in legacy environments.
+
 ---
 Beyond my professional life, I am a proud husband and father. Life is a continuous journey to find and fulfill God's purpose, and I am grateful for all the blessings and opportunities I had till now.

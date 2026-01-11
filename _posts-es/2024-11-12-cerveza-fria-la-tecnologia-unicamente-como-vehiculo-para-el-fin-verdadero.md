@@ -8,6 +8,9 @@ translation_id: cerveza-fria-la-tecnologia-unicamente-como-vehiculo-para-el-fin-
 categories: ["technology"]
 tags: ["linkedin-import", "technology", "management"]
 linkedin_url: https://www.linkedin.com/pulse/cerveza-fr%C3%ADa-juan-andr%C3%A9s-antoniuk-upozf
+image:
+  path: /assets/img/posts/cerveza-fria-la-tecnologia-unicamente-como-vehiculo-para-el-fin-verdadero/header_image.jpg
+  alt: "Cerveza Fría"
 ---
 
 ---
@@ -16,7 +19,8 @@ linkedin_url: https://www.linkedin.com/pulse/cerveza-fr%C3%ADa-juan-andr%C3%A9s-
 
 ---
 
-![Article header image]({{ '/assets/img/posts/cerveza-fria-la-tecnologia-unicamente-como-vehiculo-para-el-fin-verdadero/header_image.jpg' | relative_url }})
+
+
 
 La heladera de casa es de una de las primeras marcas; las que inventaron el producto .
 

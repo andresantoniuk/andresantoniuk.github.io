@@ -11,6 +11,9 @@ linkedin_url: https://www.linkedin.com/pulse/nuevos-rumbos-juan-andr%C3%A9s-anto
 excerpt: "Hace pocos meses terminaba un artículo con la pregunta: ¿Cómo serán los próximos 10 años? Y respondía: Difícil saberlo, pero no tengan duda que seguiré buscando y aceptando desafíos. Lo que ahora sé es que ya no serán en Totalnet Uruguay."
 toc: true
 comments: true
+image:
+  path: /assets/img/posts/nuevos-rumbos/header_image.jpg
+  alt: "Nuevos rumbos"
 ---
 
 ---
@@ -19,7 +22,8 @@ comments: true
 
 ---
 
-![Article header image]({{ '/assets/img/posts/nuevos-rumbos/header_image.jpg' | relative_url }})
+
+
 
 Hace [pocos meses terminaba un artículo con la pregunta](https://www.linkedin.com/pulse/fintech-10-a%C3%B1os-juan-andr%C3%A9s-antoniuk-7tlkf):
 

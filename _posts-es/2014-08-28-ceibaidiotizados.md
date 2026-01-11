@@ -8,6 +8,9 @@ translation_id: ceibaidiotizados
 categories: ["life"]
 tags: ["linkedin-import", "life", "education", "uruguay"]
 linkedin_url: https://www.linkedin.com/pulse/20140828053544-9925762--ceibaidiotizados
+image:
+  path: /assets/img/posts/ceibaidiotizados/header_image.jpg
+  alt: "Ceibaidiotizados"
 ---
 
 ---
@@ -16,7 +19,8 @@ linkedin_url: https://www.linkedin.com/pulse/20140828053544-9925762--ceibaidioti
 
 ---
 
-![Article header image]({{ '/assets/img/posts/ceibaidiotizados/header_image.jpg' | relative_url }})
+
+
 
 No le podemos pedir mucho más a la campaña política aquí en Uruguay, pues los políticos en definitiva son un fiel reflejo de nuestra desgastada sociedad; que se siente con [derecho de exigir grandes cosas pero no está dispuesta ni a respetar los detalles menores](http://www.montevideo.com.uy/auc.aspx?245248,245,1391).
 

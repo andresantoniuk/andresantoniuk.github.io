@@ -9,6 +9,9 @@ alt_lang: en
 translation_id: reviviendo-dinosaurios
 toc: true
 comments: true
+image:
+  path: /assets/img/posts/reviviendo-dinosaurios/reviviendo_dinosaurios.jpeg
+  alt: "Reviviendo Dinosaurios"
 ---
 Quiero compartir con todos que el [nuevo rumbo](https://antoniuk.org/es/posts/nuevos-rumbos/) que decidí es aprovechar el camino recorrido y el aprendizaje obtenido iniciando [JAAB](https://jaab.tech/); una consultora tecnológica boutique enfocada en proporcionar asesoramiento experto y soluciones probadas para mitigar riesgos tecnológicos, garantizar la continuidad del negocio y optimizar operaciones en América Latina.
 

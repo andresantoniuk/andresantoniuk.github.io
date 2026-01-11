@@ -8,6 +8,9 @@ translation_id: nuevodesafio
 categories: ["career"]
 tags: ["linkedin-import", "career", "fintech"]
 linkedin_url: https://www.linkedin.com/pulse/nuevodesaf%C3%ADo-juan-andr%C3%A9s-antoniuk-76quf
+image:
+  path: /assets/img/posts/nuevodesafio/header_image.jpg
+  alt: "Nuevo Desafío"
 ---
 
 ---
@@ -16,7 +19,8 @@ linkedin_url: https://www.linkedin.com/pulse/nuevodesaf%C3%ADo-juan-andr%C3%A9s-
 
 ---
 
-![Article header image]({{ '/assets/img/posts/nuevodesafio/header_image.jpg' | relative_url }})
+
+
 
 Quienes han compartido horas conmigo es muy probable que hayan escuchado la palabra [#chaordic acuñada por el fundador de VISA](https://www.deewhock.com/essays/chaordic-age-organizations/):
 

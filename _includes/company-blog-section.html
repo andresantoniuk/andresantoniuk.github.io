@@ -4,107 +4,104 @@
     <div class="row">
       <div class="col-12">
         <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-building"></i>
-            {% if page.url contains '/es/' %}
-              JAAB Blog
-            {% else %}
-              JAAB Blog
-            {% endif %}
-          </h2>
+          <div class="jaab-logo-container"
+            style="height: 45px; width: 160px; background: url('https://jaab.tech/assets/images/logotype-color-b.png') no-repeat center center; background-size: contain; margin: 0 auto;">
+          </div>
           <p class="section-subtitle">
             {% if page.url contains '/es/' %}
-              Últimos posts de <a href="https://jaab.tech/blog/" target="_blank" rel="noopener">mi empresa</a>
+            Últimas entradas del blog de <a href="https://jaab.tech/blog/" target="_blank" rel="noopener">JAAB Tech (mi
+              empresa)</a>
             {% else %}
-              Latest posts from <a href="https://jaab.tech/blog/" target="_blank" rel="noopener">my company</a>
+            Latest post from <a href="https://jaab.tech/blog/" target="_blank" rel="noopener">JAAB Tech blog (my
+              company)</a>
             {% endif %}
           </p>
         </div>
       </div>
     </div>
-    
+
     <div class="row">
       {% if site.data.company_blog %}
-        {% for post in site.data.company_blog limit:3 %}
-        <div class="col-lg-4 col-md-6 mb-4">
-          <article class="company-post-card">
-            {% if post.image %}
-            <div class="post-image">
-              <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
-            </div>
-            {% endif %}
-            
-            <div class="post-header">
-              <h3 class="post-title">
-                <a href="{{ post.url }}" target="_blank" rel="noopener">
-                  {{ post.title }}
-                </a>
-              </h3>
-              <div class="post-meta">
-                <span class="post-date">
-                  <i class="fas fa-calendar-alt"></i>
-                  {{ post.date | date: "%d/%m/%Y" }}
-                </span>
-                <span class="post-source">
-                  <i class="fas fa-external-link-alt"></i>
-                  {{ post.source }}
-                </span>
-              </div>
-            </div>
-            
-            <div class="post-content">
-              <p class="post-excerpt">{{ post.excerpt }}</p>
-            </div>
-            
-            <div class="post-footer">
-              <a href="{{ post.url }}" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">
-                <i class="fas fa-external-link-alt"></i>
-                {% if page.url contains '/es/' %}
-                  Leer en JAAB
-                {% else %}
-                  Read on JAAB
-                {% endif %}
+      {% for post in site.data.company_blog limit:3 %}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="company-post-card">
+          {% if post.image %}
+          <div class="post-image">
+            <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
+          </div>
+          {% endif %}
+
+          <div class="post-header">
+            <h3 class="post-title">
+              <a href="{{ post.url }}" target="_blank" rel="noopener">
+                {{ post.title }}
               </a>
-              {% if post.language == 'es' %}
-                <span class="language-badge">ES</span>
-              {% elsif post.language == 'en' %}
-                <span class="language-badge">EN</span>
-              {% endif %}
+            </h3>
+            <div class="post-meta">
+              <span class="post-date">
+                <i class="fas fa-calendar-alt"></i>
+                {{ post.date | date: "%d/%m/%Y" }}
+              </span>
+              <span class="post-source">
+                <i class="fas fa-external-link-alt"></i>
+                {{ post.source }}
+              </span>
             </div>
-          </article>
-        </div>
-        {% endfor %}
-      {% else %}
-        <div class="col-12">
-          <div class="no-posts-message">
-            <p>
+          </div>
+
+          <div class="post-content">
+            <p class="post-excerpt">{{ post.excerpt }}</p>
+          </div>
+
+          <div class="post-footer">
+            <a href="{{ post.url }}" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">
+              <i class="fas fa-external-link-alt"></i>
               {% if page.url contains '/es/' %}
-                No hay posts del blog de la empresa disponibles en este momento.
+              Leer en JAAB
               {% else %}
-                No company blog posts available at the moment.
-              {% endif %}
-            </p>
-            <a href="https://jaab.tech/blog/" target="_blank" rel="noopener" class="btn btn-primary">
-              {% if page.url contains '/es/' %}
-                Visitar JAAB Blog
-              {% else %}
-                Visit JAAB Blog
+              Read on JAAB
               {% endif %}
             </a>
+            {% if post.language == 'es' %}
+            <span class="language-badge">ES</span>
+            {% elsif post.language == 'en' %}
+            <span class="language-badge">EN</span>
+            {% endif %}
           </div>
+        </article>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="col-12">
+        <div class="no-posts-message">
+          <p>
+            {% if page.url contains '/es/' %}
+            No hay posts del blog de la empresa disponibles en este momento.
+            {% else %}
+            No company blog posts available at the moment.
+            {% endif %}
+          </p>
+          <a href="https://jaab.tech/blog/" target="_blank" rel="noopener" class="btn btn-primary">
+            {% if page.url contains '/es/' %}
+            Visitar JAAB Blog
+            {% else %}
+            Visit JAAB Blog
+            {% endif %}
+          </a>
         </div>
+      </div>
       {% endif %}
     </div>
-    
+
     <div class="row">
       <div class="col-12 text-center">
         <div class="company-blog-footer">
           <a href="https://jaab.tech/blog/" target="_blank" rel="noopener" class="btn btn-primary">
             <i class="fas fa-building"></i>
             {% if page.url contains '/es/' %}
-              Ver todos los posts de JAAB
+            Ver todos los posts de JAAB
             {% else %}
-              View All Company Posts
+            View All Company Posts
             {% endif %}
           </a>
         </div>

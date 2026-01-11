@@ -11,6 +11,9 @@ linkedin_url: https://www.linkedin.com/pulse/techevents-europe-2025-juan-andr%C3
 excerpt: "A few days ago I shared that tech events are invaluable opportunities to expand your perspective and connect with inspiring people. This is what I experienced during my recent attendance to Linux Foundation Europe and PyData Berlin events."
 toc: true
 comments: true
+image:
+  path: /assets/img/posts/techevents-europe-2025/header_image.jpg
+  alt: "TechEvents Europe 2025"
 ---
 
 ---
@@ -19,7 +22,8 @@ comments: true
 
 ---
 
-![Article header image]({{ '/assets/img/posts/techevents-europe-2025/header_image.jpg' | relative_url }})
+
+
 
 A [few days ago I shared](https://www.linkedin.com/posts/andresantoniuk_still-as-a-student-i-saw-patricia-corbo-activity-7362185402742464512-aj8V) that tech events are "*invaluable opportunities to expand your perspective and connect with inspiring people"* and that is effectively what I experimented during my recent attendance to [Linux Foundation Europe](https://www.linkedin.com/company/automotive-grade-linux?trk=article-ssr-frontend-pulse_little-mention) and [PyData Berlin](https://de.linkedin.com/company/pydata-berlin?trk=article-ssr-frontend-pulse_little-mention) events.
 

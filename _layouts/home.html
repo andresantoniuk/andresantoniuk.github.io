@@ -12,67 +12,67 @@ refactor: true
 -->
 
 {% if page.url contains '/es/' %}
-  <!-- Spanish page - show Spanish posts first, then English posts without translations -->
-  {% comment %}
-    Get all Spanish posts sorted by date
-  {% endcomment %}
-  {% assign primary_posts = site.posts-es | sort: 'date' | reverse %}
-  
-  {% comment %}
-    Get English posts that don't have Spanish translations
-    Using translation_id system for better matching
-  {% endcomment %}
-  {% assign fallback_posts = '' | split: '' %}
-  {% for english_post in site.posts %}
-    {% assign has_spanish_translation = false %}
-    {% if english_post.translation_id %}
-      {% for spanish_post in site.posts-es %}
-        {% if spanish_post.translation_id == english_post.translation_id %}
-          {% assign has_spanish_translation = true %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-    {% unless has_spanish_translation %}
-      {% assign fallback_posts = fallback_posts | push: english_post %}
-    {% endunless %}
-  {% endfor %}
-  {% assign fallback_posts = fallback_posts | sort: 'date' | reverse %}
-  
-  {% assign page_title = "Entradas en Español" %}
+<!-- Spanish page - show Spanish posts first, then English posts without translations -->
+{% comment %}
+Get all Spanish posts sorted by date
+{% endcomment %}
+{% assign primary_posts = site.posts-es | sort: 'date' | reverse %}
+
+{% comment %}
+Get English posts that don't have Spanish translations
+Using translation_id system for better matching
+{% endcomment %}
+{% assign fallback_posts = '' | split: '' %}
+{% for english_post in site.posts %}
+{% assign has_spanish_translation = false %}
+{% if english_post.translation_id %}
+{% for spanish_post in site.posts-es %}
+{% if spanish_post.translation_id == english_post.translation_id %}
+{% assign has_spanish_translation = true %}
+{% break %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% unless has_spanish_translation %}
+{% assign fallback_posts = fallback_posts | push: english_post %}
+{% endunless %}
+{% endfor %}
+{% assign fallback_posts = fallback_posts | sort: 'date' | reverse %}
+
+{% assign page_title = "Entradas en Español" %}
 {% else %}
-  <!-- English page - show English posts first, then Spanish posts without translations -->
-  {% comment %}
-    Get all English posts sorted by date
-  {% endcomment %}
-  {% assign primary_posts = site.posts | sort: 'date' | reverse %}
-  
-  {% comment %}
-    Get Spanish posts that don't have English translations
-    Using translation_id system for better matching
-  {% endcomment %}
-  {% assign fallback_posts = '' | split: '' %}
-  {% for spanish_post in site.posts-es %}
-    {% assign has_english_translation = false %}
-    {% if spanish_post.translation_id %}
-      {% for english_post in site.posts %}
-        {% if english_post.translation_id == spanish_post.translation_id %}
-          {% assign has_english_translation = true %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-    {% unless has_english_translation %}
-      {% assign fallback_posts = fallback_posts | push: spanish_post %}
-    {% endunless %}
-  {% endfor %}
-  {% assign fallback_posts = fallback_posts | sort: 'date' | reverse %}
-  
-  {% assign page_title = "Posts in English" %}
+<!-- English page - show English posts first, then Spanish posts without translations -->
+{% comment %}
+Get all English posts sorted by date
+{% endcomment %}
+{% assign primary_posts = site.posts | sort: 'date' | reverse %}
+
+{% comment %}
+Get Spanish posts that don't have English translations
+Using translation_id system for better matching
+{% endcomment %}
+{% assign fallback_posts = '' | split: '' %}
+{% for spanish_post in site.posts-es %}
+{% assign has_english_translation = false %}
+{% if spanish_post.translation_id %}
+{% for english_post in site.posts %}
+{% if english_post.translation_id == spanish_post.translation_id %}
+{% assign has_english_translation = true %}
+{% break %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% unless has_english_translation %}
+{% assign fallback_posts = fallback_posts | push: spanish_post %}
+{% endunless %}
+{% endfor %}
+{% assign fallback_posts = fallback_posts | sort: 'date' | reverse %}
+
+{% assign page_title = "Posts in English" %}
 {% endif %}
 
 {% comment %}
-  Combine primary and fallback posts, then sort by date
+Combine primary and fallback posts, then sort by date
 {% endcomment %}
 {% assign all_posts = primary_posts | concat: fallback_posts %}
 {% assign all_posts = all_posts | sort: 'date' | reverse %}
@@ -83,95 +83,145 @@ refactor: true
 <!-- Posts Section -->
 <div class="posts-section">
 
-{% if all_posts.size > 0 %}
+  {% if all_posts.size > 0 %}
   <div id="post-list" class="flex-grow-1 px-xl-1">
     {% for post in all_posts limit: site.paginate %}
-      <article class="card-wrapper card">
-        <a href="{{ post.url | relative_url }}" class="post-preview row g-0">
-          <div class="col-md-12">
-            <div class="card-body d-flex flex-column">
-              <h1 class="card-title my-2 mt-md-0">
-                {% if post.collection == 'posts-es' %}
-                  🇪🇸 {{ post.title }}
-                  {% unless page.url contains '/es/' %}
-                    <small class="language-notice-simple">
-                      <i class="fas fa-language me-1"></i>Only available in Spanish
-                    </small>
-                  {% endunless %}
+    <article class="card-wrapper card">
+      <a href="{{ post.url | relative_url }}" class="post-preview row g-0">
+        {% assign post_image = post.image.path | default: post.image %}
+        {% if post_image %}
+        <div class="col-md-8">
+          <div class="card-body d-flex flex-column h-100">
+            <h1 class="card-title my-2 mt-md-0">
+              {% if post.collection == 'posts-es' %}
+              🇪🇸 {{ post.title }}
+              {% unless page.url contains '/es/' %}
+              <small class="language-notice-simple">
+                <i class="fas fa-language me-1"></i>Only available in Spanish
+              </small>
+              {% endunless %}
+              {% else %}
+              🇬🇧 {{ post.title }}
+              {% if page.url contains '/es/' %}
+              <small class="language-notice-simple">
+                <i class="fas fa-language me-1"></i>Solo disponible en inglés
+              </small>
+              {% endif %}
+              {% endif %}
+            </h1>
+            <div class="card-text content mt-0 mb-3">
+              {% if post.excerpt and post.excerpt != blank and post.excerpt.size > 10 %}
+              <p>{{ post.excerpt | strip_html | truncate: 200 | escape }}</p>
+              {% else %}
+              <p class="text-muted">
+                <i class="fas fa-file-text me-1"></i>
+                {% if page.url contains '/es/' %}
+                Haz clic para leer el artículo completo
                 {% else %}
-                  🇬🇧 {{ post.title }}
-                  {% if page.url contains '/es/' %}
-                    <small class="language-notice-simple">
-                      <i class="fas fa-language me-1"></i>Solo disponible en inglés
-                    </small>
-                  {% endif %}
+                Click to read the full article
                 {% endif %}
-              </h1>
-              <div class="card-text content mt-0 mb-3">
-                {% comment %} Simple approach: show excerpt if available, otherwise show fallback {% endcomment %}
-                {% if post.excerpt and post.excerpt != blank and post.excerpt.size > 10 %}
-                  <p>{{ post.excerpt | strip_html | truncate: 200 | escape }}</p>
-                {% else %}
-                  <p class="text-muted">
-                    <i class="fas fa-file-text me-1"></i>
-                    {% if page.url contains '/es/' %}
-                      Haz clic para leer el artículo completo
-                    {% else %}
-                      Click to read the full article
-                    {% endif %}
-                  </p>
-                {% endif %}
-              </div>
-              <div class="post-meta flex-grow-1 d-flex align-items-end">
-                <div class="me-auto">
-                  <i class="far fa-calendar fa-fw me-1"></i>
-                  <span>{{ post.date | date: '%Y-%m-%d' }}</span>
-                </div>
+              </p>
+              {% endif %}
+            </div>
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <span>{{ post.date | date: '%Y-%m-%d' }}</span>
               </div>
             </div>
           </div>
-        </a>
-      </article>
+        </div>
+        <div class="col-md-4">
+          <div class="h-100"
+            style="background-image: url('{{ post_image | relative_url }}'); background-size: cover; background-position: center; min-height: 200px;">
+          </div>
+        </div>
+        {% else %}
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column h-100">
+            <h1 class="card-title my-2 mt-md-0">
+              {% if post.collection == 'posts-es' %}
+              🇪🇸 {{ post.title }}
+              {% unless page.url contains '/es/' %}
+              <small class="language-notice-simple">
+                <i class="fas fa-language me-1"></i>Only available in Spanish
+              </small>
+              {% endunless %}
+              {% else %}
+              🇬🇧 {{ post.title }}
+              {% if page.url contains '/es/' %}
+              <small class="language-notice-simple">
+                <i class="fas fa-language me-1"></i>Solo disponible en inglés
+              </small>
+              {% endif %}
+              {% endif %}
+            </h1>
+            <div class="card-text content mt-0 mb-3">
+              {% if post.excerpt and post.excerpt != blank and post.excerpt.size > 10 %}
+              <p>{{ post.excerpt | strip_html | truncate: 200 | escape }}</p>
+              {% else %}
+              <p class="text-muted">
+                <i class="fas fa-file-text me-1"></i>
+                {% if page.url contains '/es/' %}
+                Haz clic para leer el artÃ­culo completo
+                {% else %}
+                Click to read the full article
+                {% endif %}
+              </p>
+              {% endif %}
+            </div>
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <span>{{ post.date | date: '%Y-%m-%d' }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </a>
+    </article>
     {% endfor %}
   </div>
-{% else %}
+  {% else %}
   <div id="post-list" class="flex-grow-1 px-xl-1">
     <div class="card-wrapper">
       <div class="card">
         <div class="card-body">
           <h1 class="card-title">
             {% if page.url contains '/es/' %}
-              No se encontraron entradas
+            No se encontraron entradas
             {% else %}
-              No posts found
+            No posts found
             {% endif %}
           </h1>
           <p class="card-text">
             {% if page.url contains '/es/' %}
-              No hay entradas disponibles en este momento.
+            No hay entradas disponibles en este momento.
             {% else %}
-              There are no posts available at the moment.
+            There are no posts available at the moment.
             {% endif %}
           </p>
         </div>
       </div>
     </div>
   </div>
-{% endif %}
+  {% endif %}
 
-<!-- See All Posts Link -->
-{% if all_posts.size > site.paginate %}
-<div class="text-center mt-4 mb-5">
-  <a href="{% if page.url contains '/es/' %}/es/archives/{% else %}/archives/{% endif %}" class="btn btn-outline-primary">
-    <i class="fas fa-list me-2"></i>
-    {% if page.url contains '/es/' %}
+  <!-- See All Posts Link -->
+  {% if all_posts.size > site.paginate %}
+  <div class="text-center mt-4 mb-5">
+    <a href="{% if page.url contains '/es/' %}/es/archives/{% else %}/archives/{% endif %}"
+      class="btn btn-outline-primary">
+      <i class="fas fa-list me-2"></i>
+      {% if page.url contains '/es/' %}
       Ver todas las entradas
-    {% else %}
+      {% else %}
       See all posts
-    {% endif %}
-  </a>
-</div>
-{% endif %}
+      {% endif %}
+    </a>
+  </div>
+  {% endif %}
 </div>
 <!-- End Posts Section -->
 
