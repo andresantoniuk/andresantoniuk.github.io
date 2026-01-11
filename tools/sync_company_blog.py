@@ -128,11 +128,17 @@ def save_company_blog_data(entries):
     # Create _data directory if it doesn't exist
     os.makedirs('_data', exist_ok=True)
     
+    import json
+    
     # Save to _data/company_blog.yml
     with open('_data/company_blog.yml', 'w', encoding='utf-8') as f:
         yaml.dump(entries, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+        
+    # Save to _data/company_blog.json
+    with open('_data/company_blog.json', 'w', encoding='utf-8') as f:
+        json.dump(entries, f, ensure_ascii=False, indent=2)
     
-    print(f"Saved {len(entries)} company blog entries to _data/company_blog.yml")
+    print(f"Saved {len(entries)} company blog entries to _data/company_blog.yml and _data/company_blog.json")
 
 def main():
     """Main function"""
