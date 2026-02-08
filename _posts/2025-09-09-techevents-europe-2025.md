@@ -25,7 +25,7 @@ image:
 
 
 
-A [few days ago I shared](https://www.linkedin.com/posts/andresantoniuk_still-as-a-student-i-saw-patricia-corbo-activity-7362185402742464512-aj8V) that tech events are "*invaluable opportunities to expand your perspective and connect with inspiring people"* and that is effectively what I experimented during my recent attendance to [Linux Foundation Europe](https://www.linkedin.com/company/automotive-grade-linux?trk=article-ssr-frontend-pulse_little-mention) and [PyData Berlin](https://de.linkedin.com/company/pydata-berlin?trk=article-ssr-frontend-pulse_little-mention) events.
+A [few days ago I shared](https://www.linkedin.com/posts/andresantoniuk_still-as-a-student-i-saw-patricia-corbo-activity-7362185402742464512-aj8V) that tech events are "*invaluable opportunities to expand your perspective and connect with inspiring people"* and that is effectively what I experimented during my recent attendance to [Open Source Summit Europe](https://events.linuxfoundation.org/archive/2025/open-source-summit-europe/) and [PyData Berlin](https://de.linkedin.com/company/pydata-berlin?trk=article-ssr-frontend-pulse_little-mention) events.
 
 ![Article image 2]({{ '/assets/img/posts/techevents-europe-2025/image_2.jpg' | relative_url }})
 

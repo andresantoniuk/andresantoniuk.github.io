@@ -37,4 +37,8 @@ _sass/vendors/
 
 # Tools directory (keep the scripts but ignore any generated content)
 tools/__pycache__/
-tools/*.pyc
+
+# Generated / Temporary
+tmp/
+refs/
+tags/

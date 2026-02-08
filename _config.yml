@@ -116,6 +116,8 @@ exclude:
   - "package-lock.json"
   - "node_modules"
   - "vendor"
+  - "refs"
+  - "tmp"
   - "Gemfile"
   - "Gemfile.lock"
   - "jekyll-theme-chirpy.gemspec"
