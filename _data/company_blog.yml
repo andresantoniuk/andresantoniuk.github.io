@@ -1,3 +1,23 @@
+- title: 'fluxrig: the showroom is now open'
+  url: https://jaab.tech/blog/fluxrig-public-release/
+  date: '2026-04-24'
+  excerpt: Announcing the first public release of fluxrig, the specialized patchbay
+    for protocol orchestration and mission-critical business logic.
+  language: en
+  source: JAAB Company Blog
+  external: true
+  image: https://jaab.tech/assets/images/fluxrig_logo.svg
+- title: 'Fractional CTO: El liderazgo que su empresa necesita para escalar'
+  url: https://jaab.tech/blog/fractional-cto/
+  date: '2026-04-21'
+  excerpt: En el ecosistema empresarial actual, la tecnología ya no es un departamento
+    de soporte; es el motor central del negocio. Sin embargo, muchas organizaciones
+    enfrentan el desafío de alinear la visión estratégica con la ejecución técnica
+    del equipo de desarrollo de manera eficiente.
+  language: es
+  source: JAAB Company Blog
+  external: true
+  image: https://jaab.tech/assets/images/blog/Gemini_Generated_Image_fractional_cto.png
 - title: 'IA y el factor humano: Desmitificando la modernización'
   url: https://jaab.tech/blog/ia-factor-humano/
   date: '2026-02-27'
@@ -29,7 +49,7 @@
   external: true
   image: https://jaab.tech/assets/images/blog/puntatech_2026.jpg
 - title: 'fluxrig: Orquestando Protocolos'
-  url: https://jaab.tech/blog/fluxrig/
+  url: https://jaab.tech/blog/fluxrig-preview/
   date: '2026-01-09'
   excerpt: fluxrig ofrece orquestación distribuida y Open Source para tus operaciones
     de misión crítica, eliminando la deuda técnica de integraciones complejas.
